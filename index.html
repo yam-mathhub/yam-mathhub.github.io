@@ -30,7 +30,7 @@
 }
 
 .menu-shell {
-  pointer-events: none;;
+  pointer-events: none;
   position: sticky;
   z-index: 100;
   top: 0;
@@ -94,11 +94,11 @@
   background-position: center;
   background-image: url("https://images.unsplash.com/photo-1692368149715-d8beda212526?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MjgyNTN8&ixlib=rb-4.1.0&q=85");
 }
-.top-space iframe{
+.top-space iframe {
   position: absolute;
   z-index: 4;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: calc(100vh + 50px);
   mix-blend-mode: multiply;
@@ -154,26 +154,203 @@
     justify-content: space-between;
     flex-direction: column;
   }
-  .top-space iframe{
+  .top-space iframe {
     display: none;
   }
-  #top-iframe-phone{
-    display: block
+  #top-iframe-phone {
+    display: block;
   }
 }
 
-.writing-space:after{
+.shell {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.main-shell {
+  transform: scale(0.8);
+}
+.main {
+  position: relative;
+  width: 320px;
+  border: 1px #ccc solid;
+  padding: 5px;
+  text-align: center;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+.m-top {
+  position: relative;
+  z-index: 90;
+  background-color: blue;
+  color: #fff;
+  padding: 20px;
+  text-align: left;
+}
+.m-top span {
+  display: block;
+}
+.m-top span:nth-child(1) {
+  font-size: 10px;
+}
+.m-top span:nth-child(2) {
+  font-size: 24px;
+  font-weight: bold;
+}
+.m-top span:nth-child(3) {
+  font-size: 12px;
+}
+.imgs {
+  position: relative;
+  z-index: 90;
+  margin: 5px 0 5px;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(3, 1fr);
+  cborder: 1px red solid;
+  width: 316px;
+  height: 316px;
+  overflow: hidden;
+}
+.img {
+  border: 1px #ccc solid;
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: all 0s ease;
+}
+.img:active {
+  filter: brightness(0.9);
+  transform: scale(0.97);
+}
+.img:nth-child(1) {
+  background-image: url("https://plus.unsplash.com/premium_photo-1741194732641-eca20483c388?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D");
+}
+.img:nth-child(2) {
+  background-image: url("https://images.unsplash.com/photo-1505129013025-ecf8f0168373?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI2MDV8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.img:nth-child(3) {
+  background-image: url("https://images.unsplash.com/photo-1763848844837-1240b4e2e0bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI3MDF8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.img:nth-child(4) {
+  background-image: url("https://images.unsplash.com/photo-1497752531616-c3afd9760a11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI3Mjl8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.img:nth-child(5) {
+  background-image: url("https://images.unsplash.com/photo-1601059683522-02ae0eeff25c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI4OTh8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.img:nth-child(6) {
+  background-image: url("https://images.unsplash.com/photo-1533048324814-79b0a31982f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI3ODZ8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.img:nth-child(7) {
+  background-image: url("https://images.unsplash.com/reserve/NV0eHnNkQDHA21GC3BAJ_Paris%20Louvr.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDMwNTh8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.img:nth-child(8) {
+  background-image: url("https://images.unsplash.com/photo-1568581357391-c71a1675ef93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI5OTB8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.img:nth-child(9) {
+  background-image: url("https://images.unsplash.com/photo-1752075425081-95a33148723f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI4MzZ8&ixlib=rb-4.1.0&q=80&w=400");
+}
+.wrong-mess {
+  position: relative;
+  z-index: 90;
+  color: darkred;
+  font-size: 12px;
+  margin: 2px 0 10px;
+  display: block;
+  display: none;
+}
+.m-bottom {
+  position: relative;
+  z-index: 90;
+  text-align: left;
+  border-top: 1px #ccc solid;
+  margin: 0 -5px -5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.m-bottom button {
+  background-color: transparent;
+  color: #777;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px 5px;
+}
+.m-bottom button:hover {
+  filter: brightness(1.2);
+}
+.m-bottom button:active {
+  filter: brightness(0.8);
+  transform: scale(0.98);
+}
+#verify,
+#skip {
+  background-color: blue;
+  color: #fff;
+  font-size: 13px;
+  margin: 0;
+  padding: 12px 24px 12px;
+  border: none;
+  border-radius: 2px;
+  margin-left: auto;
+}
+#skip {
+  display: none;
+}
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    transform: translate3d(0, -15px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -7px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+.img.selected {
+  atransform: scale(0.9);
+  filter: brightness(0.8);
+  border: 3px #007bff solid;
+  width: 90px;
+  height: 90px;
+  margin: 2px;
+}
+
+.writing-space:after {
   position: absolute;
   z-index: 100;
-  content: '';
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   opacity: 0.5;
   pointer-events: none;
   background-size: contain;
-  background-position: center ;
+  background-position: center;
   background-image: url("https://images.unsplash.com/photo-1731977787486-4be263e36777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyMzA5NjN8&ixlib=rb-4.1.0&q=80&w=400");
   mix-blend-mode: hard-light;
 }
@@ -187,9 +364,9 @@
   flex-direction: column;
   overflow: hidden;
 
-  filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(10deg) brightness(0.9)
+  filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(190deg) brightness(0.9)
     saturate(4);
-  -webkit-filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(10deg)
+  -webkit-filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(190deg)
     brightness(0.9) saturate(4);
 }
 .writing-span {
@@ -722,21 +899,20 @@
   z-index: 1000;
   font-size: 14px;
   left: 40px;
-  top:40px;
+  top: 40px;
 }
-.painting iframe{
+.painting iframe {
   position: absolute;
   width: 100vw;
   height: calc(100vh + 300px);
   transform: translate(0, -250px);
 }
 
-.music-space-filter-fix2{
-  filter: brightness(0.7)
-    saturate(6);
+.music-space-filter-fix2 {
+  filter: brightness(0.7) saturate(6);
   -webkit-filter: brightness(0.7) saturate(6);
 }
-.music-space-filter-fix1{
+.music-space-filter-fix1 {
   filter: contrast(2) hue-rotate(310deg);
   -webkit-filter: contrast(2) hue-rotate(310deg);
 }
@@ -748,7 +924,7 @@
   height: 100vh;
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
-  
+
   filter: invert(0.3) sepia(1);
   -webkit-filter: invert(0.3) sepia(1);
 
@@ -803,23 +979,11 @@
   }
 }
 
-
-
-
-
- 
-.  {
-  position: sticky;
-  top:0;
-  margin-bottom: 80vh;
-}
-. {
-  margin-bottom: 0;
-}
   </style>
 </head>
 
 <body>
+
   <div class="sticky-shell">
     <div class="menu-shell">
       <div class="menu">
@@ -832,7 +996,7 @@
     <div class="top-space">
       <iframe src="https://www.desmos.com/calculator/9q4v4vzehl?embed" frameborder=0></iframe>
       <iframe id="top-iframe-phone" src="https://www.desmos.com/calculator/rt4qjafpe4?embed" frameborder=0></iframe>
-      
+
       <div class="top-bg"></div>
       <div class="top-text-shell">
         <span>I do a lot of things. <br><br>
@@ -946,6 +1110,48 @@
           <div class="key-b"></div>
           <div class="key"></div>
           <div class="key"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell">
+    <div class="main-shell">
+      <div class="main">
+        <div class="m-top">
+          <span>Select all images with</span>
+          <span>things I like</span>
+          <span>Click verify once there are none left</span>
+        </div>
+        <div class="imgs">
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+        </div>
+        <span class="wrong-mess">Please select all matching images.</span>
+        <div class="m-bottom">
+          <button id="re">
+            <i class="fa-solid fa-arrow-rotate-right"></i>
+          </button>
+          <button id="listen">
+            <i class="fa-solid fa-headphones"></i>
+          </button>
+          <button id="info">
+            <i class="fa-solid fa-circle-info"></i>
+          </button>
+
+          <button id="verify">
+            VERIFY
+          </button>
+          <button id="skip">
+            SKIP
+          </button>
         </div>
       </div>
     </div>
@@ -1100,6 +1306,75 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+    // 正確答案：藍色門的索引 (1,2,5,8,9 對應索引 0,1,4,7,8)
+    const correctIndexes = [0, 1, 4, 7, 8];
+    let selectedIndexes = [];
+    let hasVerified = false;
+    let rotationDegree = 0;
+    // 獲取所有圖片元素
+    const images = document.querySelectorAll('.img');
+    const verifyBtn = document.getElementById('verify');
+    const skipBtn = document.getElementById('skip');
+    const reBtn = document.getElementById('re');
+    const wrongMess = document.querySelector('.wrong-mess');
+    const main = document.querySelector('.main');
+    const shell = document.querySelector('.shell');
+    // 為每個圖片添加點擊事件
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        if (selectedIndexes.includes(index)) {
+          // 如果已選中，則取消選中
+          selectedIndexes = selectedIndexes.filter(i => i !== index);
+          img.classList.remove('selected');
+        } else {
+          // 如果未選中，則選中
+          selectedIndexes.push(index);
+          img.classList.add('selected');
+        }
+      });
+    });
+    // 驗證按鈕功能
+    verifyBtn.addEventListener('click', () => {
+      // 檢查選中的圖片是否正確
+      const isCorrect = selectedIndexes.length === correctIndexes.length &&
+        selectedIndexes.every(index => correctIndexes.includes(index));
+      if (isCorrect) {
+        // 驗證成功，跳轉到指定網站
+        window.location.href = 'https://youtu.be/AxE4TltnvjI?si=KnpJ8WPAlJMY7E4R';
+      } else {
+        // 驗證失敗
+        wrongMess.style.display = 'block';
+        if (!hasVerified) {
+          verifyBtn.style.display = 'none';
+          skipBtn.style.display = 'inline-block';
+          hasVerified = true;
+        }
+      }
+    });
+    // Skip按鈕功能
+    skipBtn.addEventListener('click', () => {
+      // 隱藏skip按鈕，顯示verify按鈕
+      skipBtn.style.display = 'none';
+      verifyBtn.style.display = 'inline-block';
+      // 讓main開始彈跳
+      shell.style.animation = 'bounce 0.6s ease-in-out 3';
+      // 重置選擇狀態
+      selectedIndexes = [];
+      images.forEach(img => {
+        img.classList.remove('selected');
+      });
+      wrongMess.style.display = 'none';
+      hasVerified = false;
+      // 清除彈跳動畫
+      setTimeout(() => {
+        shell.style.animation = '';
+      }, 1800);
+    });
+    // 刷新按鈕功能
+    reBtn.addEventListener('click', () => {
+      rotationDegree += 90;
+      main.style.transform = `rotate(${rotationDegree}deg)`;
+    });
   </script>
   </b>
 
