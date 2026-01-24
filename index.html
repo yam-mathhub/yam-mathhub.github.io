@@ -22,7 +22,7 @@
 
   color: #000;
   font-size: 18px;
-  
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -30,7 +30,7 @@
 }
 
 .menu-shell {
-  zdisplay: none;
+  pointer-events: none;;
   position: sticky;
   z-index: 100;
   top: 0;
@@ -42,13 +42,15 @@
   margin: -70px 0 0;
 }
 .menu {
+  pointer-events: visibleFill;
   abackground-color: #ccc;
   display: inline-block;
-  padding: 4px 10px;
+  padding: 6px 10px;
   font-size: 14px;
   border-radius: 14px;
 
   backdrop-filter: blur(4px) invert(0.1);
+  -webkit-backdrop-filter: blur(4px) invert(0.1);
 
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -69,11 +71,15 @@
   cursor: pointer;
   color: #777;
 }
+#now {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+}
 
 .top-space {
   position: relative;
   font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
+  font-size: 14px;
   overflow: hidden;
   background-color: #eee;
   height: 100vh;
@@ -88,8 +94,20 @@
   background-position: center;
   background-image: url("https://images.unsplash.com/photo-1692368149715-d8beda212526?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MjgyNTN8&ixlib=rb-4.1.0&q=85");
 }
+.top-space iframe{
+  position: absolute;
+  z-index: 4;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: calc(100vh + 50px);
+  mix-blend-mode: multiply;
+}
+#top-iframe-phone {
+  display: none;
+}
 .top-bg {
-  opacity: 0.2;
+  opacity: 0.1;
   position: absolute;
   z-index: 1;
   pointer-events: none;
@@ -112,6 +130,7 @@
   justify-content: space-between;
   flex-direction: row;
   gap: 20px;
+  pointer-events: none;
 }
 .top-text-shell:after {
   content: "";
@@ -121,8 +140,8 @@
   bottom: -40px;
   left: -40px;
   right: -40px;
-  background-color: #b2d1db;
-  opacity: 0.6;
+  background-color: #cddae0;
+  opacity: 0.7;
   filter: blur(20px);
   border-radius: 50%;
 }
@@ -135,219 +154,83 @@
     justify-content: space-between;
     flex-direction: column;
   }
-}
-
-.painting {
-  position: relative;
-  z-index: 30;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
-  overflow: hidden;
-  background-color: pink;
-  height: 100vh;
-  adisplay: none;
-  box-sizing: border-box;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-}
-.painting span{
-  margin: 0 40px;
-  margin-right: 10px;
-  font-size: 14px;
-  line-height: 1.5;
-  
-}
-.waterfall {
-  column-count: 2;
-  column-gap: 0;
-  width: 100vw;
-}
-@media (min-width: 768px) {
-  .waterfall {
-    column-count: 3;
-  }
-}
-@media (min-width: 1024px) {
-  .waterfall {
-    column-count: 4;
-  }
-}
-@media (min-width: 1440px) {
-  .waterfall {
-    column-count: 5;
-  }
-}
-.image-item {
-  filter: grayscale(1) sepia(1) hue-rotate(-50deg) contrast(0.9);
-  break-inside: avoid;
-  position: relative;
-  overflow: hidden;
-  padding: 20px;
-}
-.image-item:hover{
-  filter: none;
-}
-.image-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.flower-space {
-  adisplay: none;
-  overflow: hidden;
-  background-color: #000;
-  height: 100vh;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-
-  display: flex;
-  aalign-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  filter: invert(0.65) sepia(1) contrast(2) hue-rotate(90deg) brightness(0.6) saturate(8);
-}
-.flower-space-text-group {
-  position: relative;
-  z-index: 100;
-  aborder: blue solid 1px;
-  margin: 40px;
-  color: #fff;
-  font-size: 14px;
-  line-height: 1.4;
-  height: 100vh;
-
-  display: flex;
-  aalign-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-}
-.flower-space-text-group a {
-  font-size: 12px;
-  color: #ccc;
-  display: inline-block;
-  margin: 10px 0 -10px;
-}
-.flower-space-text-group h3 {
-  opacity: 0.9;
-  font-size: 10px;
-  text-align: justify;
-
-  display: flex;
-  aalign-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-}
-.flower-space-text-group h4 {
-  opacity: 0.8;
-  font-size: 8px;
-  line-height: 1.2;
-  margin: 0 0 3px;
-  text-align: justify;
-}
-.flower-space-text-group h5 {
-  opacity: 0.7;
-  font-size: 5px;
-  line-height: 1;
-  margin: 0;
-  text-align: justify;
-  letter-spacing: -1px;
-}
-.flower-space iframe {
-  position: absolute;
-  adisplay: none;
-  z-index: -100;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 100vh;
-  border-radius: 50%;
-
-  transform-origin: center 90%;
-  transform: perspective(130px) rotateY(-10deg) rotateZ(6deg) scale(1.5, 1);
-
-  filter: invert(1) blur(3px);
-}
-@media screen and (max-width: 467px) {
-  .flower-space-text-group h4 {
-    opacity: 0.7;
-    font-size: 6px;
-    margin: 0;
-    letter-spacing: -1px;
-  }
-  .flower-space-text-group h5 {
+  .top-space iframe{
     display: none;
   }
-}
-
-.music-space {
-  adisplay: none;
-  position: relative;
-  overflow: hidden;
-  background-color: #ccc;
-  height: 100vh;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-
-  filter: invert(0.3) sepia(1) contrast(2) hue-rotate(310deg) brightness(0.7)
-    saturate(6);
-
-  display: flex;
-  aalign-items: start;
-  justify-content: end;
-  flex-direction: column;
-}
-.music-bg {
-  opacity: 0.2;
-  position: fixed;
-  z-index: 15;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-size: cover;
-  background-position: center 12%;
-  background-image: url("https://images.unsplash.com/photo-1623638309606-e587fda3fb49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MTEzNjR8&ixlib=rb-4.1.0&q=80&w=400");
-  mix-blend-mode: hard-light;
-}
-.music-space span {
-  position: relative;
-  z-index: 20;
-  font-size: 14px;
-  padding: 0 40px 30px;
-}
-.piano-shell {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  qwidth: 100%;
-  white-space: nowrap;
-  height: 100vh;
-  aborder: 1px red solid;
-
-  transform-origin: 20% 70%;
-  transform: perspective(130px) rotateX(-10deg);
-
-  filter: blur(5px);
-}
-@media screen and (max-width: 467px) {
-  .piano-shell {
-    position: absolute;
-    top: 0;
-    left: -20%;
-    right: -10%;
-    height: 80vh;
+  #top-iframe-phone{
+    display: block
   }
 }
+
+.writing-space:after{
+  position: absolute;
+  z-index: 100;
+  content: '';
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  opacity: 0.5;
+  pointer-events: none;
+  background-size: contain;
+  background-position: center ;
+  background-image: url("https://images.unsplash.com/photo-1731977787486-4be263e36777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyMzA5NjN8&ixlib=rb-4.1.0&q=80&w=400");
+  mix-blend-mode: hard-light;
+}
+.writing-space {
+  position: relative;
+  background-color: #080808;
+  height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(10deg) brightness(0.9)
+    saturate(4);
+  -webkit-filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(10deg)
+    brightness(0.9) saturate(4);
+}
+.writing-span {
+  position: relative;
+  z-index: 2;
+  font-family: "Courier New", Courier, monospace;
+  color: orange;
+  font-size: 14px;
+  margin: 40px;
+  zborder: 1px red solid;
+  line-height: 1.5;
+}
+.old-phone {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0 40px 0;
+  align-self: end;
+}
+@media screen and (min-width: 467px) {
+  .writing-space {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .writing-span {
+    position: absolute;
+    left: 40px;
+    aborder: 1px red solid;
+    width: 100px;
+    margin: 0;
+  }
+  .old-phone {
+    position: relative;
+    margin: 0;
+    align-self: center;
+  }
+}
+
 .key,
 .key-b {
   color: #000;
@@ -401,134 +284,6 @@
   background-color: #fff;
   border: 1.5px #999 solid;
 }
-
-.writing-space {
-  position: relative;
-  background-color: #080808;
-  height: 100vh;
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  flex-direction: column;
-  overflow: hidden;
-
-  filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(40deg) brightness(0.9)
-    saturate(4);
-}
-.writing-span {
-  position: relative;
-  z-index: 2;
-  font-family: "Courier New", Courier, monospace;
-  color: orange;
-  font-size: 14px;
-  margin: 40px;
-  zborder: 1px red solid;
-  line-height: 1.5;
-}
-.old-phone {
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0 40px 0;
-  align-self: end;
-}
-@media screen and (min-width: 467px) {
-  .writing-space {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-  }
-  .writing-span {
-    position: absolute;
-    left: 40px;
-    aborder: 1px red solid;
-    width: 100px;
-    margin: 0;
-  }
-  .old-phone {
-    position: relative;
-    margin: 0;
-    align-self: center;
-  }
-}
-
-.bg-img-cover {
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1111;
-  display: flex;
-  xdisplay: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #999;
-  qbackground-color: red;
-  mix-blend-mode: multiply;
-  opacity: 1;
-}
-.bg-img-cover-mask {
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  background-color: #fff;
-  filter: blur(15px);
-  -webkit-filter: blur(15px);
-  border-radius: 20%;
-}
-.bg {
-  z-index: 1000;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  opacity: 0.02;
-  pointer-events: none;
-  background-position: center;
-  background-image: url("");
-  filter: grayscale(0.5);
-  webkit-filter: grayscale(0.5);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 197, 0, 1) 12%,
-    rgba(244, 255, 0, 1) 26%,
-    rgba(124, 255, 0, 1) 37%,
-    rgba(67, 255, 178, 1) 45%,
-    rgba(0, 255, 251, 1) 52%,
-    rgba(0, 171, 255, 1) 62%,
-    rgba(69, 0, 255, 1) 73%,
-    rgba(214, 0, 255, 1) 89%,
-    rgba(255, 0, 0, 1) 100%
-  );
-  background-size: 20px 60px;
-  background-repeat: repeat;
-}
-.crt {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-size: 2px;
-  background-repeat: repeat;
-  background-position: center;
-  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
-  z-index: 999;
-  mix-blend-mode: soft-light;
-  filter: blur(0.4px);
-  -webkit-filter: blur(0.4px);
-  backdrop-filter: blur(1px) saturate(1.2) brightness(1.8);
-  backdrop-webkit-filter: blur(1px) saturate(1.2) brightness(1.8);
-  opacity: 0.6;
-  pointer-events: none;
-}
-
 .top {
   position: absolute;
   z-index: 888;
@@ -878,156 +633,325 @@
   transform-origin: center right;
 }
 
+.bg-img-cover {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1111;
+  display: flex;
+  xdisplay: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #999;
+  qbackground-color: red;
+  mix-blend-mode: multiply;
+  opacity: 1;
+}
+.bg-img-cover-mask {
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  background-color: #fff;
+  filter: blur(15px);
+  -webkit-filter: blur(15px);
+  border-radius: 20%;
+}
+.bg {
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.02;
+  pointer-events: none;
+  background-position: center;
+  background-image: url("");
+  filter: grayscale(0.5);
+  webkit-filter: grayscale(0.5);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 197, 0, 1) 12%,
+    rgba(244, 255, 0, 1) 26%,
+    rgba(124, 255, 0, 1) 37%,
+    rgba(67, 255, 178, 1) 45%,
+    rgba(0, 255, 251, 1) 52%,
+    rgba(0, 171, 255, 1) 62%,
+    rgba(69, 0, 255, 1) 73%,
+    rgba(214, 0, 255, 1) 89%,
+    rgba(255, 0, 0, 1) 100%
+  );
+  background-size: 20px 60px;
+  background-repeat: repeat;
+}
+.crt {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: 2px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: 999;
+  mix-blend-mode: soft-light;
+  filter: blur(0.4px);
+  -webkit-filter: blur(0.4px);
+  backdrop-filter: blur(1px) saturate(1.2) brightness(1.8);
+  backdrop-webkit-filter: blur(1px) saturate(1.2) brightness(1.8);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.painting {
+  position: relative;
+  z-index: 30;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  overflow: hidden;
+  height: 100vh;
+}
+.painting span {
+  color: #000;
+  position: absolute;
+  z-index: 1000;
+  font-size: 14px;
+  left: 40px;
+  top:40px;
+}
+.painting iframe{
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh + 300px);
+  transform: translate(0, -250px);
+}
+
+.music-space-filter-fix2{
+  filter: brightness(0.7)
+    saturate(6);
+  -webkit-filter: brightness(0.7) saturate(6);
+}
+.music-space-filter-fix1{
+  filter: contrast(2) hue-rotate(310deg);
+  -webkit-filter: contrast(2) hue-rotate(310deg);
+}
+.music-space {
+  adisplay: none;
+  position: relative;
+  overflow: hidden;
+  background-color: #ccc;
+  height: 100vh;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  
+  filter: invert(0.3) sepia(1);
+  -webkit-filter: invert(0.3) sepia(1);
+
+  display: flex;
+  aalign-items: start;
+  justify-content: end;
+  flex-direction: column;
+}
+.music-bg {
+  opacity: 0.2;
+  position: fixed;
+  z-index: 15;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-size: cover;
+  background-position: center 12%;
+  background-image: url("https://images.unsplash.com/photo-1623638309606-e587fda3fb49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MTEzNjR8&ixlib=rb-4.1.0&q=80&w=400");
+  mix-blend-mode: hard-light;
+}
+.music-space span {
+  position: relative;
+  z-index: 20;
+  font-size: 14px;
+  padding: 0 40px 30px;
+}
+.piano-shell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  qwidth: 100%;
+  white-space: nowrap;
+  height: 100vh;
+  aborder: 1px red solid;
+
+  transform-origin: 20% 70%;
+  transform: perspective(130px) rotateX(-10deg);
+
+  filter: blur(5px);
+}
+@media screen and (max-width: 467px) {
+  .piano-shell {
+    position: absolute;
+    top: 0;
+    left: -20%;
+    right: -10%;
+    height: 80vh;
+  }
+}
+
+
+
+
+
+ 
+.  {
+  position: sticky;
+  top:0;
+  margin-bottom: 80vh;
+}
+. {
+  margin-bottom: 0;
+}
   </style>
 </head>
 
 <body>
   <div class="sticky-shell">
     <div class="menu-shell">
-    <div class="menu">
-      <span class="menu-name">I am me</span>
-      <span class="menu-bnt">I...</span>
-      <span class="menu-bnt">About</span>
-      <span class="menu-bnt">Contact Me</span>
+      <div class="menu">
+        <span class="menu-name">I am me</span>
+        <span class="menu-bnt" id="now">I...</span>
+        <span class="menu-bnt">About</span>
+        <span class="menu-bnt">Contact Me</span>
+      </div>
     </div>
-  </div>
     <div class="top-space">
+      <iframe src="https://www.desmos.com/calculator/9q4v4vzehl?embed" frameborder=0></iframe>
+      <iframe id="top-iframe-phone" src="https://www.desmos.com/calculator/rt4qjafpe4?embed" frameborder=0></iframe>
+      
       <div class="top-bg"></div>
       <div class="top-text-shell">
         <span>I do a lot of things. <br><br>
           While I may not be great at every single one, <br>I truly enjoy the process. </span>
-          <span>I study <br>math and CS. </span>
-            <span>I draw, <br>play the piano, write music, <br>write, <br>build websites, </span>
-              <span>eat, <br>sleep, <br>play, <br>and daydream...</span>
+        <span>I study <br>Math and CS. </span>
+        <span>I draw, <br>play the piano, write music, <br>write story, <br>build websites, </span>
+        <span>eat, <br>sleep, <br>play, <br>and daydream...</span>
       </div>
     </div>
   </div>
-  
+
   <div class="writing-space">
     <span class="writing-span">I <br>write.</span>
     <div class="old-phone">
       <div class="text-shell">
-    <div class="bg-img-cover">
-      <div class="bg-img-cover-mask"></div>
-    </div>
-    <div class="bg"></div>
-    <div class="crt"></div>
+        <div class="bg-img-cover">
+          <div class="bg-img-cover-mask"></div>
+        </div>
+        <div class="bg"></div>
+        <div class="crt"></div>
 
-    <div class="top">
-      <span><i class="fa-solid fa-sim-card"></i></span>
-      <span><i class="fa-solid fa-sim-card"></i></span>
-      <span><i class="fa-solid fa-battery-half"></i></span>
-    </div>
-    <div class="text" style="cursor: text;">
-      <span class="tit">陽光雨</span>
-這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。路常常在變，遇上熟悉的事物，總會令人生出一絲安心來，即使那是微乎其微的。<br>
-<br>
-這裏沒有風，雨水狀的掛飾不會無故地動。抬起手臂輕掃著掛飾，它們發出如風鈴般清脆的聲音。高掛的太陽燈有一圈紅色的光暈，就如真的太陽一樣熾熱……太陽？天空？<br>
-<br>
-思考沒有答案的問題只會為自己徒增煩惱。席地而坐，坐累了，便躺下。聽著通風口低沉的嗡鳴聲，伴隨著掛飾晃動的叮叮聲，很快便入睡了。<br>
-<br>
-會夢見甚麼呢？<br><br><br>
-      
-      <span class="tit">星、果、樹</span>
-深灰色地毯很柔軟，短短的絨毛從指間溢出，又搔癢著指腹。<br>
-<br>
-躺在地上看向天花板，會看到漫天的星星；不知是否是散光的緣故，天上的星星真的很閃、很耀眼。<br>
-<br>
-高大的杉樹遮蔽了星光，在身上佈下了大片的黑暗。樹上有好多果子，外形像蘋果，但是顏色卻有紅色的、黃色的、粉綠色的、天藍色的和淺紫色的。不過，杉樹會長這樣的果實嗎？<br>
-<br>
-輕輕搖曳的枝條發出沙沙聲，碩大的果子摇摇欲墜，大樹的尖端恰好指向了天上最亮的星。眼皮越來越重，從狹縫中看，星星的光暈變成放射性的六角星。<br>
-<br>
-人會動、樹會動、果子會動，但星星不會動……<br>
-<br>
-再次睜眼時，星星好像變近了。星星動了，變得更大、更亮。<br>
-<br>
-星星會墜下嗎？是時候要走了。
-      <span class="typing"></span>
+        <div class="top">
+          <span><i class="fa-solid fa-sim-card"></i></span>
+          <span><i class="fa-solid fa-sim-card"></i></span>
+          <span><i class="fa-solid fa-battery-half"></i></span>
+        </div>
+        <div class="text" style="cursor: text;">
+          <span class="tit">陽光雨</span>
+          這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。路常常在變，遇上熟悉的事物，總會令人生出一絲安心來，即使那是微乎其微的。<br>
+          <br>
+          這裏沒有風，雨水狀的掛飾不會無故地動。抬起手臂輕掃著掛飾，它們發出如風鈴般清脆的聲音。高掛的太陽燈有一圈紅色的光暈，就如真的太陽一樣熾熱……太陽？天空？<br>
+          <br>
+          思考沒有答案的問題只會為自己徒增煩惱。席地而坐，坐累了，便躺下。聽著通風口低沉的嗡鳴聲，伴隨著掛飾晃動的叮叮聲，很快便入睡了。<br>
+          <br>
+          會夢見甚麼呢？<br><br><br>
 
-      <br><br><br><br><br><br><br><br><br><br><br>
-    </div>
-    <div class="bottom">
-      <span><i class="fa-solid fa-bars"></i></span>
-      <span>儲存</span>
-      <span><i class="fa-solid fa-delete-left"></i></span>
-    </div>
-  </div>
+          <span class="tit">星、果、樹</span>
+          深灰色地毯很柔軟，短短的絨毛從指間溢出，又搔癢著指腹。<br>
+          <br>
+          躺在地上看向天花板，會看到漫天的星星；不知是否是散光的緣故，天上的星星真的很閃、很耀眼。<br>
+          <br>
+          高大的杉樹遮蔽了星光，在身上佈下了大片的黑暗。樹上有好多果子，外形像蘋果，但是顏色卻有紅色的、黃色的、粉綠色的、天藍色的和淺紫色的。不過，杉樹會長這樣的果實嗎？<br>
+          <br>
+          輕輕搖曳的枝條發出沙沙聲，碩大的果子摇摇欲墜，大樹的尖端恰好指向了天上最亮的星。眼皮越來越重，從狹縫中看，星星的光暈變成放射性的六角星。<br>
+          <br>
+          人會動、樹會動、果子會動，但星星不會動……<br>
+          <br>
+          再次睜眼時，星星好像變近了。星星動了，變得更大、更亮。<br>
+          <br>
+          星星會墜下嗎？是時候要走了。
+          <span class="typing"></span>
+
+          <br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="bottom">
+          <span><i class="fa-solid fa-bars"></i></span>
+          <span>儲存</span>
+          <span><i class="fa-solid fa-delete-left"></i></span>
+        </div>
+      </div>
       <div class="keyboard-up">
-    <div class="k-up-top">
-      <span><i class="fa-solid fa-minus"></i></span>
-      <span><i class="fa-solid fa-minus"></i></span>
-    </div>
-    <div class="k-up-bottom">
-      <span><i class="fa-solid fa-phone"></i></span>
-      <span><i class="fa-solid fa-power-off"></i></span>
-    </div>
+        <div class="k-up-top">
+          <span><i class="fa-solid fa-minus"></i></span>
+          <span><i class="fa-solid fa-minus"></i></span>
+        </div>
+        <div class="k-up-bottom">
+          <span><i class="fa-solid fa-phone"></i></span>
+          <span><i class="fa-solid fa-power-off"></i></span>
+        </div>
 
-    <div class="k-up-center">
-      <div class="k-up-center-up"></div>
-      <div class="k-up-center-down"></div>
-      <div class="k-up-center-left"></div>
-      <div class="k-up-center-right"></div>
+        <div class="k-up-center">
+          <div class="k-up-center-up"></div>
+          <div class="k-up-center-down"></div>
+          <div class="k-up-center-left"></div>
+          <div class="k-up-center-right"></div>
 
-      <div class="k-up-center-inner"></div>
-    </div>
+          <div class="k-up-center-inner"></div>
+        </div>
 
-    <div class="k-up-left">
-      <i class="fa-solid fa-gear"></i>
-    </div>
-    <div class="k-up-right">
-      <i class="fa-solid fa-arrow-left"></i>
+        <div class="k-up-left">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+        <div class="k-up-right">
+          <i class="fa-solid fa-arrow-left"></i>
+        </div>
+      </div>
     </div>
   </div>
-    </div>
-  </div>
-  
+
   <div class="painting">
     <span>I draw.</span>
-    <div class="waterfall" id="waterfall"></div>
+    <iframe src="https://www.desmos.com/calculator/ltasfjwp6j?embed" frameborder=0></iframe>
   </div>
 
-  <div class="music-space">
-    <div class="music-bg"></div>
-    <span>I make music and play piano.</span>
-    <div class="piano-shell">
-      <div class="key"></div>
-      <div class="key-b"></div>
-      <div class="key"></div>
-      <div class="key-b"><iframe src="https://www.youtube.com/embed/f2F9SboeLeo?si=-vCSBWe41I0zhwfM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-      <div class="key"></div>
-      <div class="key"><span></span></div>
-      <div class="key-b"><iframe src="https://www.youtube.com/embed/WXFtbaVmzsg?si=zHdc_hFCPBhb_NhR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-      <div class="key"></div>
-      <div class="key-b"><iframe src="https://www.youtube.com/embed/mnhJZnCEniQ?si=nM_QFmvC2QGczHD6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-      <div class="key"></div>
-      <div class="key-b"></div>
-      <div class="key"></div>
-      <div class="key"></div>
-    </div>
-  </div>
-  
-  <div class="flower-space">
-    <div class="flower-space-text-group">
-      <div>
-        <h3><span>r. + b. =</span> <span>a.</span> <span>\ cos.</span> <span>\ left.</span> <span>( n. \ theta. + c. \ right. )</span></h3>
-      </div>
-      <div>
-        I love flowers,<br>
-        <span>Lilies, camellias, daffodi...</span><br>
-        <a href="https://www.desmos.com/calculator/gwifbylh56?embed=&lang=zh-TW" target="_blank">
-          Open at Desmos</a>
-      </div>
-      <div>
-        <h4>Roses, daisies, tulips, sunflowers, marigolds, lavenders, jasmines, orchids, carnations, chrysanthemums, peonies, hydrangeas, irises, lilies of the valley, magnolias, dahlias, snapdragons, zinnias, petunias, geraniums, begonias, fuchsias, impatiens, pansies, violets, forget-me-nots, bluebells, hyacinths, narcissus, anemones, ranunculus, freesia, gladiolus, alstroemeria, birds of paradise, protea, hellebores, amaryllis, calla lilies, stargazer lilies, tiger lilies, gardenias, azaleas, rhododendrons, camellias japonicas, lotus, water lilies, poppies, cosmos, asters, salvias, delphiniums, foxgloves, hollyhocks, lupines, phlox, veronicas, yarrow, black-eyed Susans, coneflowers, gaillardia, coreopsis, shasta daisies, echinacea, rudbeckia, helianthus, calendulas, nasturtiums, sweet peas, </h4>
-        <h5>larkspurs, stock, sweet William, bachelor's buttons, cornflowers, scabiosa, love-in-a-mist, nigella, cleome, ageratum, lobelia, salvia splendens, verbena, osteospermum, gazanias, dianthus, sweet alyssum, nicotiana, tobacco flower, angel's trumpet, brugmansia, canna lilies, crocosmia, montbretia, kniphofia, red hot poker, agapanthus, allium, crocus, grape hyacinths, snowdrops, tulips parrot, lilies asiatic, daylilies, hostas, ferns, bleeding hearts, dicentra, columbine, aquilegia, primroses, primula, cyclamen, hellebores orientalis, trillium, jack-in-the-pulpit, arisaema, lady's slipper orchids, cypripedium, lady slipper, trillium, bloodroot, sanguinaria, mayapple, podophyllum, solomon's seal, polygonatum, foamflower, tiarella, heuchera, coral bells, astilbe, goat's beard, aruncus, ligularia, ligularias, rodgersia, astilbe chinensis, goat's beard, epimedium, barrenwort, lamium, deadnettle, lamiastrum, yellow archangel, ajuga, bugleweed, vinca minor, periwinkle, pachysandra, wintercreeper, euonymus fortunei, ivy, hedera, creeping phlox, phlox subulata, candytuft, iberis, sweet woodruff, galium odoratum, lilyturf, liriope, mondo grass, ophiopogon, sedum, stonecrop, sempervivum, hens and chicks, houseleeks, armeria, thrift, sea pink, dianthus barbatus, sweet William, lychnis, campion, silene, catchfly, cerastium, snow-in-summer, ceratostigma, plumbago, plumbaginaceae, caryopteris, blue mist shrub, vitex, chaste tree, buddleia, butterfly bush, lantana, abelia, spiraea, forsythia, lilac, viburnum, weigela, deutzia, mock orange, philadelphus, potentilla, cinquefoil, kerria, japonica, chaenomeles, flowering quince, hamamelis, witch hazel, rhodotypos, kerri azalea, kalmia, mountain laurel, pieris, andromeda, enkianthus, leucothoe, agarista, lyonia, cliffortia, cassiope, leiophyllum, sand myrtle, epigaea, trailing arbutus, gaultheria, wintergreen, kalmia latifolia, kalmia polifolia, sheep laurel, bog laurel, leiophyllum buxifolium, sand myrtle, oxydendrum arboreum, sourwood, lyonia lucida, staggerbush, leiophyllum, sand myrtle</h5>
+  <div class="music-space-filter-fix2">
+    <div class="music-space-filter-fix1">
+      <div class="music-space">
+        <div class="music-bg"></div>
+        <span>I make music and play piano.</span>
+        <div class="piano-shell">
+          <div class="key"></div>
+          <div class="key-b"></div>
+          <div class="key"></div>
+          <div class="key-b"><iframe src="https://www.youtube.com/embed/f2F9SboeLeo?si=-vCSBWe41I0zhwfM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="key"></div>
+          <div class="key"><span></span></div>
+          <div class="key-b"><iframe src="https://www.youtube.com/embed/WXFtbaVmzsg?si=zHdc_hFCPBhb_NhR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="key"></div>
+          <div class="key-b"><iframe src="https://www.youtube.com/embed/mnhJZnCEniQ?si=nM_QFmvC2QGczHD6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="key"></div>
+          <div class="key-b"></div>
+          <div class="key"></div>
+          <div class="key"></div>
+        </div>
       </div>
     </div>
-
-    <iframe src="https://www.desmos.com/calculator/gwifbylh56?embed" frameborder=0></iframe>
   </div>
 
-  <script>
-// Vibration function
+  <script>// Vibration function
 function vibrate() {
   if (navigator.vibrate) {
     navigator.vibrate(10); // 30ms subtle vibration
@@ -1149,85 +1073,34 @@ upButton.addEventListener("contextmenu", (e) => e.preventDefault());
 downButton.addEventListener("contextmenu", (e) => e.preventDefault());
 
 // Add vibration to all other buttons
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Get all the button elements
   const buttons = [
-    ...document.querySelectorAll('.k-up-top span'),
-    ...document.querySelectorAll('.k-up-bottom span'),
-    document.querySelector('.k-up-center-inner'),
-    document.querySelector('.k-up-center-left'),
-    document.querySelector('.k-up-center-right'),
-    document.querySelector('.k-up-left'),
-    document.querySelector('.k-up-right')
+    ...document.querySelectorAll(".k-up-top span"),
+    ...document.querySelectorAll(".k-up-bottom span"),
+    document.querySelector(".k-up-center-inner"),
+    document.querySelector(".k-up-center-left"),
+    document.querySelector(".k-up-center-right"),
+    document.querySelector(".k-up-left"),
+    document.querySelector(".k-up-right")
   ].filter(Boolean); // Remove any null elements
 
   // Add vibration to each button
-  buttons.forEach(button => {
+  buttons.forEach((button) => {
     // For mouse/click events
-    button.addEventListener('mousedown', () => {
+    button.addEventListener("mousedown", () => {
       vibrate();
     });
-    
+
     // For touch events
-    button.addEventListener('touchstart', (e) => {
+    button.addEventListener("touchstart", (e) => {
       vibrate();
     });
   });
 });
 
 
-        const GITHUB_BASE_URL = 'https://yam-mathhub.github.io/media/image/';
-        
-        const images = [
-            'IMG_0475.PNG',
-            'IMG_0490.PNG',
-            'IMG_0508.PNG',
-            'IMG_0614.PNG',
-            'IMG_0621.PNG',
-            'IMG_0652.PNG',
-            'IMG_0720.PNG',
-            'IMG_0796.PNG',
-            'IMG_0969.PNG',
-            'IMG_1009.PNG',
-            'IMG_1010.PNG',
-            '無標題91_20250918095347.png',
-            'IMG_0475.PNG',
-            'IMG_0490.PNG',
-            'IMG_0508.PNG',
-            'IMG_0614.PNG',
-            'IMG_0621.PNG',
-            'IMG_0652.PNG',
-            'IMG_0720.PNG'
-        ];
-
-        function createWaterfall() {
-            const waterfall = document.getElementById('waterfall');
-            waterfall.innerHTML = '';
-
-            images.forEach((filename) => {
-                const item = document.createElement('div');
-                item.className = 'image-item';
-                
-                const img = document.createElement('img');
-                img.src = GITHUB_BASE_URL + filename;
-                img.loading = 'lazy';
-                
-                img.addEventListener('error', () => {
-                    item.style.display = 'none';
-                });
-                
-                item.appendChild(img);
-                waterfall.appendChild(item);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', createWaterfall);
-
-        window.addEventListener('resize', () => {
-            clearTimeout(window.resizeTimer);
-            window.resizeTimer = setTimeout(createWaterfall, 250);
-        });
   </script>
-</body>
+  </b>
 
 </html>
