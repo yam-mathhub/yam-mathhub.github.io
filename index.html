@@ -172,7 +172,9 @@
 }
 
 .shell {
+  pointer-events: none;
   position: relative;
+  z-index: 300;
   top: 0;
   left: 0;
   right: 0;
@@ -181,11 +183,14 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  margin:-40vh 0 -60vh;
+  overflow: hidden;
 }
 .main-shell {
   transform: scale(0.8);
 }
 .main {
+  pointer-events: visibleFill;
   position: relative;
   width: 320px;
   border: 1px #ccc solid;
@@ -366,7 +371,7 @@
 .writing-space {
   position: relative;
   background-color: #080808;
-  height: 80vh;
+  aheight: 80vh;
   min-height: 470px;
   display: flex;
   align-items: start;
@@ -1125,6 +1130,10 @@
     </div>
   </div>
 
+  <div style="height: 80vh; overflow: hidden;">
+    <iframe src="https://www.desmos.com/calculator/ddsc7xekxw?embed" style="vertical-align: top; width: 100%; height: calc(80vh + 60px);" frameborder=0></iframe>
+  </div>
+
   <div class="shell">
     <div class="main-shell">
       <div class="main">
@@ -1165,6 +1174,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div style="height: 400px; overflow: hidden;">
+    <iframe src="https://www.desmos.com/calculator/bqgegtpb10?embed" style="vertical-align: top; width: 100%; height: calc(500px + 60px);-webkit-filter:blur(4px) contrast(4) brightness(0.8);filter:blur(4px) contrast(4) brightness(0.8);transform: scale(1.5);" frameborder=0></iframe>
   </div>
 
   <script>// Vibration function
