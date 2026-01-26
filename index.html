@@ -82,50 +82,21 @@
   font-size: 14px;
   overflow: hidden;
   background-color: #eee;
-  height: 100vh;
+  aheight: 100vh;
   adisplay: none;
+  padding: 80px 0px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  
+  filter: contrast(1.1) brightness(1.1);
+  -webkit-filter: contrast(1.1) brightness(1.1);
 
   background-size: cover;
   background-position: center;
   background-image: url("https://images.unsplash.com/photo-1692368149715-d8beda212526?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MjgyNTN8&ixlib=rb-4.1.0&q=85");
-  
-  filter: brightness(1.06);
-  -webkit-filter: brightness(1.06);
-}
-.top-space iframe {
-  position: absolute;
-  z-index: 4;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: calc(100vh + 50px);
-  mix-blend-mode: multiply;
-}
-#top-iframe-phone {
-  display: none;
-}
-.top-bg {
-  opacity: 0.1;
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-size: cover;
-  background-position: center 12%;
-  background-image: url("https://images.unsplash.com/photo-1623638309606-e587fda3fb49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MTEzNjR8&ixlib=rb-4.1.0&q=80&w=400");
-  mix-blend-mode: hard-light;
-  
-  filter: grayscale(0.3);
-  -webkit-filter: grayscale(0.3);
 }
 .top-text-shell {
   position: relative;
@@ -138,8 +109,8 @@
   gap: 20px;
   pointer-events: none;
   
-  filter: grayscale(0.3);
-  -webkit-filter: grayscale(0.3);
+  filter: blur(1px) contrast(1.8) brightness(0.92);
+  -webkit-filter: blur(1px) contrast(1.8) brightness(0.92);
 }
 .top-text-shell:after {
   content: "";
@@ -149,12 +120,52 @@
   bottom: -40px;
   left: -40px;
   right: -40px;
-  background-color: #cddae0;
+  background-color: #eee;
   opacity: 0.7;
-  filter: blur(20px);
+  filter: blur(20px) ;
   border-radius: 50%;
 }
+.word-shell{
+  position: relative;
+  display: inline-block;
+  
+  filter: blur(1px) contrast(2);
+  -webkit-filter: blur(1px) contrast(2);
+}
+.word-shell span{
+  position: absolute;
+  top:0;
+  left:0;
+}
+.word-shell span:nth-child(1){
+  color: #222;
+  filter: blur(2px);
+  transform: translate(-2px, 9px);
+  opacity: 0.6;
+}
+.word-shell span:nth-child(2){
+  color: #222;
+  font-weight: bold;
+  transform: translate(5px, -5px);
+  opacity: 0.24;
+}
+.word-shell span:nth-child(3){
+  color: #222;
+  font-weight: bold;
+  transform: translate(-4px, -3px);
+  opacity: 0.3;
+}
+.word-shell span:nth-child(4){
+  color: #000;
+  font-weight: bold;
+  filter: blur(2px);
+  opacity: 0.4;
+}
+
 @media screen and (max-width: 467px) {
+  .top-space{
+  padding: 80px 40px;
+  }
   .top-text-shell {
     height: auto;
     margin: 0 40px 0;
@@ -163,31 +174,27 @@
     justify-content: space-between;
     flex-direction: column;
   }
-  .top-space iframe {
-    display: none;
-  }
-  #top-iframe-phone {
-    display: block;
-  }
 }
 
 .shell {
   pointer-events: none;
-  position: relative;
+  position: absolute;
   z-index: 300;
-  top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  margin:-40vh 0 -60vh;
+  amin-height: 100vh;
+  amargin:-40vh 0 -60vh;
   overflow: hidden;
+  
+  mix-blend-mode: darken;
 }
 .main-shell {
-  transform: scale(0.8);
+  transform: scale(0.6);
+  transform-origin: 20% 80%;
+  pointer-events: none;
 }
 .main {
   pointer-events: visibleFill;
@@ -1009,16 +1016,12 @@
       </div>
     </div>
     <div class="top-space">
-      <iframe src="https://www.desmos.com/calculator/9q4v4vzehl?embed" frameborder=0></iframe>
-      <iframe id="top-iframe-phone" src="https://www.desmos.com/calculator/rt4qjafpe4?embed" frameborder=0></iframe>
-
-      <div class="top-bg"></div>
       <div class="top-text-shell">
-        <span>I do a lot of things. <br><br>
-          While I may not be great at every single one, <br>I truly enjoy the process. </span>
+        <span>I do a lot of <div class="word-shell">things<span>things</span><span>things</span><span>things</span><span>things</span></div>. <br><br>
+          While I may not be great at every single one, <br>I truly enjoy the <div class="word-shell">process<span>process</span><span>process</span><span>process</span><span>process</span></div>. </span>
         <span>I study <br>Math and CS. </span>
         <span>I draw, <br>play the piano, write music, <br>write story, <br>build websites, </span>
-        <span>eat, <br>sleep, <br>play, <br>and daydream...</span>
+        <span>eat, <br>sleep, <br>play, <br>and <div class="word-shell">daydream<span>daydream</span><span>daydream</span><span>daydream</span><span>daydream</span></div>...</span>
       </div>
     </div>
   </div>
@@ -1130,11 +1133,9 @@
     </div>
   </div>
 
-  <div style="height: 80vh; overflow: hidden;">
-    <iframe src="https://www.desmos.com/calculator/ddsc7xekxw?embed" style="vertical-align: top; width: 100%; height: calc(80vh + 60px);" frameborder=0></iframe>
-  </div>
-
-  <div class="shell">
+  <div style="height: 120vh; overflow: hidden; position: relative;">
+    <iframe src="https://www.desmos.com/calculator/ddsc7xekxw?embed" style="vertical-align: top; width: 100%; height: calc(120vh + 60px);" frameborder=0></iframe>
+    <div class="shell">
     <div class="main-shell">
       <div class="main">
         <div class="m-top">
@@ -1175,10 +1176,9 @@
       </div>
     </div>
   </div>
-
-  <div style="height: 400px; overflow: hidden;">
-    <iframe src="https://www.desmos.com/calculator/bqgegtpb10?embed" style="vertical-align: top; width: 100%; height: calc(500px + 60px);-webkit-filter:blur(4px) contrast(4) brightness(0.8);filter:blur(4px) contrast(4) brightness(0.8);transform: scale(1.5);" frameborder=0></iframe>
   </div>
+
+  
 
   <script>// Vibration function
 function vibrate() {
