@@ -81,7 +81,7 @@
   font-family: "Courier New", Courier, monospace;
   font-size: 14px;
   overflow: hidden;
-  background-color: #eee;
+  background-color: #ECECEC;
   aheight: 100vh;
   adisplay: none;
   padding: 80px 0px;
@@ -91,12 +91,9 @@
   justify-content: center;
   flex-direction: row;
   
-  filter: contrast(1.1) brightness(1.1);
-  -webkit-filter: contrast(1.1) brightness(1.1);
-
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://images.unsplash.com/photo-1692368149715-d8beda212526?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MjgyNTN8&ixlib=rb-4.1.0&q=85");
+  filter: contrast(1.1) brightness(0.98);
+  -webkit-filter: contrast(1.1) brightness(0.98);
+  color: #000;
 }
 .top-text-shell {
   position: relative;
@@ -128,9 +125,7 @@
 .word-shell{
   position: relative;
   display: inline-block;
-  
-  filter: blur(1px) contrast(2);
-  -webkit-filter: blur(1px) contrast(2);
+  color: #215E61;
 }
 .word-shell span{
   position: absolute;
@@ -138,25 +133,23 @@
   left:0;
 }
 .word-shell span:nth-child(1){
-  color: #222;
   filter: blur(2px);
   transform: translate(-2px, 9px);
   opacity: 0.6;
 }
 .word-shell span:nth-child(2){
-  color: #222;
+  color: #B7BDF7;
   font-weight: bold;
   transform: translate(5px, -5px);
-  opacity: 0.24;
+  opacity: 0.4;
 }
 .word-shell span:nth-child(3){
-  color: #222;
   font-weight: bold;
   transform: translate(-4px, -3px);
   opacity: 0.3;
 }
 .word-shell span:nth-child(4){
-  color: #000;
+  color: #84934A;
   font-weight: bold;
   filter: blur(2px);
   opacity: 0.4;
@@ -914,6 +907,9 @@
   font-size: 12px;
   overflow: hidden;
   height: 100vh;
+  
+  filter: contrast(1.1) brightness(0.92);
+  -webkit-filter: contrast(1.1) brightness(0.92);
 }
 .painting span {
   color: #000;
@@ -1134,51 +1130,49 @@
   </div>
 
   <div style="height: 120vh; overflow: hidden; position: relative;">
-    <iframe src="https://www.desmos.com/calculator/ddsc7xekxw?embed" style="vertical-align: top; width: 100%; height: calc(120vh + 60px);" frameborder=0></iframe>
+    <iframe src="https://www.desmos.com/calculator/2nzev0lscr?embed" style="vertical-align: top; width: 100%; height: calc(120vh + 60px); filter:invert(1);-webkit-filter:invert(1);" frameborder=0></iframe>
     <div class="shell">
-    <div class="main-shell">
-      <div class="main">
-        <div class="m-top">
-          <span>Select all images with</span>
-          <span>things I like</span>
-          <span>Click verify once there are none left</span>
-        </div>
-        <div class="imgs">
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-          <div class="img"></div>
-        </div>
-        <span class="wrong-mess">Please select all matching images.</span>
-        <div class="m-bottom">
-          <button id="re">
-            <i class="fa-solid fa-arrow-rotate-right"></i>
-          </button>
-          <button id="listen">
-            <i class="fa-solid fa-headphones"></i>
-          </button>
-          <button id="info">
-            <i class="fa-solid fa-circle-info"></i>
-          </button>
+      <div class="main-shell">
+        <div class="main">
+          <div class="m-top">
+            <span>Select all images with</span>
+            <span>things I like</span>
+            <span>Click verify once there are none left</span>
+          </div>
+          <div class="imgs">
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+          </div>
+          <span class="wrong-mess">Please select all matching images.</span>
+          <div class="m-bottom">
+            <button id="re">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </button>
+            <button id="listen">
+              <i class="fa-solid fa-headphones"></i>
+            </button>
+            <button id="info">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
 
-          <button id="verify">
-            VERIFY
-          </button>
-          <button id="skip">
-            SKIP
-          </button>
+            <button id="verify">
+              VERIFY
+            </button>
+            <button id="skip">
+              SKIP
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-
-  
 
   <script>// Vibration function
 function vibrate() {
