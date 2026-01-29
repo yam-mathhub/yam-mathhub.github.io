@@ -8,17 +8,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
   <link href="" rel="shortcut icon" />
-  <title>???</title>
+  <title>Project</title>
 
   <style>body {
   font-family: "MS Sans Serif", sans-serif;
 
   margin: 0;
-  padding: 0;
+  padding: 40px;
   position: relative;
 
   -webkit-tap-highlight-color: transparent;
-  background-color: #999;
+  background-color: #eee;
 
   color: #000;
   font-size: 18px;
@@ -28,1313 +28,555 @@
   -ms-user-select: none;
   user-select: none;
 }
-
-.top-space {
-  position: relative;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 14px;
-  overflow: hidden;
-  background-color: #eee;
-  aheight: 100vh;
-  adisplay: none;
-  padding: 80px 0px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-
-  filter: contrast(1.1) brightness(0.98);
-  -webkit-filter: contrast(1.1) brightness(0.98);
-  color: #000;
-}
-.top-text-shell {
-  position: relative;
-  z-index: 5;
-  margin: 0 40px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  gap: 20px;
-  pointer-events: none;
-
-  filter: blur(1px) contrast(1.8) brightness(0.92);
-  -webkit-filter: blur(1px) contrast(1.8) brightness(0.92);
-}
-.top-text-shell:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: -40px;
-  bottom: -40px;
-  left: -40px;
-  right: -40px;
-  background-color: #eee;
-  opacity: 0.7;
-  filter: blur(20px);
-  border-radius: 50%;
-}
-.word-shell {
-  position: relative;
-  display: inline-block;
-  color: #215e61;
-}
-.word-shell span {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.word-shell span:nth-child(1) {
-  filter: blur(2px);
-  transform: translate(-2px, 9px);
-  opacity: 0.6;
-}
-.word-shell span:nth-child(2) {
-  color: #b7bdf7;
-  font-weight: bold;
-  transform: translate(5px, -5px);
-  opacity: 0.4;
-}
-.word-shell span:nth-child(3) {
-  font-weight: bold;
-  transform: translate(-4px, -3px);
-  opacity: 0.3;
-}
-.word-shell span:nth-child(4) {
-  color: #84934a;
-  font-weight: bold;
-  filter: blur(2px);
-  opacity: 0.4;
-}
-
-@media screen and (max-width: 467px) {
-  .top-space {
-    padding: 80px 40px;
-  }
-  .top-text-shell {
-    height: auto;
-    margin: 0 40px 0;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    flex-direction: column;
+@media screen and (min-width: 990px){
+  body{
+    padding: 40px calc(50vw - 400px);
   }
 }
 
-.shell {
-  pointer-events: none;
-  position: absolute;
-  z-index: 300;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  amin-height: 100vh;
-  amargin: -40vh 0 -60vh;
-  overflow: hidden;
-
-  mix-blend-mode: exclusion;
-}
-.main-shell {
-  transform: scale(0.6);
-  transform-origin: 20% 80%;
-  pointer-events: none;
-}
-.main {
-  pointer-events: visibleFill;
-  position: relative;
-  width: 320px;
-  border: 1px #ccc solid;
-  padding: 5px;
-  text-align: center;
-  background-color: #fff;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-}
-.m-top {
-  position: relative;
-  z-index: 90;
-  background-color: blue;
-  color: #fff;
-  padding: 20px;
-  text-align: left;
-}
-.m-top span {
-  display: block;
-}
-.m-top span:nth-child(1) {
-  font-size: 10px;
-}
-.m-top span:nth-child(2) {
+.tit-top{
   font-size: 24px;
   font-weight: bold;
+  margin: 0 0 50px;
 }
-.m-top span:nth-child(3) {
-  font-size: 12px;
-}
-.imgs {
-  position: relative;
-  z-index: 90;
-  margin: 5px 0 5px;
-  display: grid;
-  gap: 3px;
-  grid-template-columns: repeat(3, 1fr);
-  cborder: 1px red solid;
-  width: 316px;
-  height: 316px;
-  overflow: hidden;
-}
-.img {
-  border: 1px #ccc solid;
-  width: 100px;
-  height: 100px;
-  margin: 0;
-  cursor: pointer;
-  background-size: cover;
-  background-position: center;
-  transition: all 0s ease;
-}
-.img:active {
-  filter: brightness(0.9);
-  transform: scale(0.97);
-}
-.img:nth-child(1) {
-  background-image: url("https://plus.unsplash.com/premium_photo-1741194732641-eca20483c388?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D");
-}
-.img:nth-child(2) {
-  background-image: url("https://images.unsplash.com/photo-1505129013025-ecf8f0168373?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI2MDV8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.img:nth-child(3) {
-  background-image: url("https://images.unsplash.com/photo-1763848844837-1240b4e2e0bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI3MDF8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.img:nth-child(4) {
-  background-image: url("https://images.unsplash.com/photo-1497752531616-c3afd9760a11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI3Mjl8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.img:nth-child(5) {
-  background-image: url("https://images.unsplash.com/photo-1601059683522-02ae0eeff25c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI4OTh8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.img:nth-child(6) {
-  background-image: url("https://images.unsplash.com/photo-1533048324814-79b0a31982f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI3ODZ8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.img:nth-child(7) {
-  background-image: url("https://images.unsplash.com/reserve/NV0eHnNkQDHA21GC3BAJ_Paris%20Louvr.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDMwNTh8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.img:nth-child(8) {
-  background-image: url("https://images.unsplash.com/photo-1568581357391-c71a1675ef93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI5OTB8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.img:nth-child(9) {
-  background-image: url("https://images.unsplash.com/photo-1752075425081-95a33148723f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyNDI4MzZ8&ixlib=rb-4.1.0&q=80&w=400");
-}
-.wrong-mess {
-  position: relative;
-  z-index: 90;
-  color: darkred;
-  font-size: 12px;
-  margin: 2px 0 10px;
-  display: block;
-  display: none;
-}
-.m-bottom {
-  position: relative;
-  z-index: 90;
-  text-align: left;
-  border-top: 1px #ccc solid;
-  margin: 0 -5px -5px;
-  padding: 5px;
+.tit{
+  font-weight: bold;
+  margin: 0 0 12px;
+  
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 }
-.m-bottom button {
-  background-color: transparent;
-  color: #777;
-  border: none;
-  font-size: 20px;
+.tit span{
+  font-size: 18px;
+}
+.tit button{
+  font-size: 14px;
+  color: #666;
+  background-color: #ddd;
+  border-radius: 20px;
   cursor: pointer;
-  padding: 5px 10px 5px;
-}
-.m-bottom button:hover {
-  filter: brightness(1.2);
-}
-.m-bottom button:active {
-  filter: brightness(0.8);
-  transform: scale(0.98);
-}
-#verify,
-#skip {
-  background-color: blue;
-  color: #fff;
-  font-size: 13px;
-  margin: 0;
-  padding: 12px 24px 12px;
   border: none;
-  border-radius: 2px;
-  margin-left: auto;
-}
-#skip {
-  display: none;
-}
-@keyframes bounce {
-  0%,
-  20%,
-  53%,
-  80%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  40%,
-  43% {
-    transform: translate3d(0, -15px, 0);
-  }
-
-  70% {
-    transform: translate3d(0, -7px, 0);
-  }
-
-  90% {
-    transform: translate3d(0, -2px, 0);
-  }
-}
-.img.selected {
-  atransform: scale(0.9);
-  filter: brightness(0.8);
-  border: 3px #007bff solid;
-  width: 90px;
-  height: 90px;
-  margin: 2px;
+  padding: 3px 12px;
+  margin: 0;
 }
 
-.writing-space:after {
-  position: absolute;
-  z-index: 100;
-  content: "";
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.5;
-  pointer-events: none;
-  background-size: contain;
-  background-position: center;
-  background-image: url("https://images.unsplash.com/photo-1731977787486-4be263e36777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjkyMzA5NjN8&ixlib=rb-4.1.0&q=80&w=400");
-  mix-blend-mode: hard-light;
+.text-space,
+.drawing-space,
+.music-space,
+.code-space,
+.math-space{
+  margin:0 0 50px;
 }
-.writing-space {
-  position: relative;
-  background-color: #080808;
-  aheight: 80vh;
-  min-height: 470px;
+
+
+
+
+.texts-shell{
+  aborder: 1px red solid;
+  overflow: auto;
+  white-space: nowrap;
+  
+  padding: 0 40px 0;
+  margin: 0 -40px 0;
+}
+.text{
+  font-family: "Noto Serif CJK TC", "Source Han Serif TC", 
+    "Source Han Serif SC", "Songti TC", "SimSun", serif;
+  vertical-align: top;
+  display: inline-block;
+  width:90px;
+  height: 120px;
+  padding: 4px;
+  margin-right: 12px;
+  background-color: #fff;
+  aborder: 1px blue solid;
+  overflow: hidden;
+  cursor: pointer;
+}
+.text-info-shell{
   display: flex;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
-  overflow: hidden;
-
-  filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(190deg) brightness(0.9)
-    saturate(4);
-  -webkit-filter: invert(0.8) sepia(0.7) contrast(1) hue-rotate(190deg)
-    brightness(0.9) saturate(4);
+  
+  writing-mode: vertical-lr; /* Vertical lines stack Left to Right */
+  text-orientation: mixed; 
 }
-.writing-span {
-  position: relative;
-  z-index: 2;
-  font-family: "Courier New", Courier, monospace;
-  color: orange;
-  font-size: 14px;
-  margin: 40px;
-  zborder: 1px red solid;
-  line-height: 1.5;
+.text span{
+  font-size: 24px;
+  font-weight: bold;
+  height: 120px;
+  margin:2px 4px 2px;
 }
-.old-phone {
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0 40px 0;
-  align-self: end;
-}
-@media screen and (min-width: 467px) {
-  .writing-space {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-  }
-  .writing-span {
-    position: absolute;
-    left: 40px;
-    aborder: 1px red solid;
-    width: 100px;
-    margin: 0;
-  }
-  .old-phone {
-    position: relative;
-    margin: 0;
-    align-self: center;
-  }
-}
-
-.key,
-.key-b {
-  color: #000;
-  position: relative;
-  aborder: 1px red solid;
-  display: inline-block;
-  vertical-align: top;
-  cursor: pointer;
-  overflow: none;
-  overflow: hidden;
-
-  transform-origin: center top;
-  transform: perspective(130px) rotateY(-10deg);
-}
-.key iframe,
-.key-b iframe {
-  height: 260%;
-  width: 100%;
-  filter: grayscale(1);
-  opacity: 0.8;
-}
-.key iframe:hover,
-.key-b iframe:hover {
-  opacity: 0.15;
-}
-.key {
-  z-index: 1;
-  background-color: #bbb;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(187, 187, 187, 0.9) 46%
-  );
-  width: 10.7%;
-  height: 100%;
-  margin: -10% 0 0;
-}
-.key:hover {
-  margin: -8% 0 0;
-  background-color: #fff;
-}
-.key-b {
-  z-index: 10;
-  background-color: #999;
-  margin: -10% -4.5% 0;
-  width: 8%;
-  height: 70%;
-}
-.key-b:hover {
-  margin: -8% calc(-4.5% - 1.5px) 0;
-  background-color: #fff;
-  border: 1.5px #999 solid;
-}
-.top {
-  position: absolute;
-  z-index: 888;
-  top: 0;
-  left: 0;
-  right: 0;
-  color: #fff;
-  background-color: #191919;
-  padding: 0 2px 0;
-  height: 16px;
-  aborder: 1px red solid;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+.text p{
+  aborder: 1px blue solid;
+  color:#aaa;
+  margin:0;
   font-size: 10px;
+  height: 120px;
+  white-space: wrap;
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
-.top span {
-  display: inline-block;
-  margin: 0 2px 0;
+@media screen and (min-width: 990px){
+.texts-shell{
+    padding: 0 calc(50vw - 400px);
+    margin: 0 calc(-50vw + 400px);
+  
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  }
 }
-.top span:last-child {
-  float: right;
-  font-size: 12px;
-  margin-left: auto;
-}
-.bottom {
-  position: absolute;
-  z-index: 888;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  color: #fff;
-  background-color: #191919;
-  padding: 2px;
-  aborder: 1px red solid;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  font-size: 16px;
-}
-.bottom span {
-  display: inline-block;
-  margin: 0 2px 0;
-}
-.bottom span i {
-  width: 20px;
-  text-align: center;
-  aborder: 1px red solid;
-}
-.bottom span:nth-child(2) {
-  margin: 0 auto 0;
-}
-.text-shell {
-  border: 2px #111 solid;
-  position: relative;
-  min-width: 164px;
-  max-width: 164px;
-  overflow: hidden;
-  background-color: #191919;
-  margin: 0 0 57px;
-  sbox-shadow: 0 0 20px #161616;
-  pointer-events: none;
-}
-.text {
-  color: orange;
-  font-size: 12px;
-  height: 199px;
-  padding: 20px;
-  overflow: auto;
-  overflow: none;
+.texts-shell {
+  -ms-overflow-style: none;
   scrollbar-width: none;
+  overflow-y: scroll;
+  
 }
-.typing {
-  display: inline-block;
-  width: 10px;
-  height: 16px;
-  margin: 0 0 -2px;
-  background-color: orange;
-  filter: brightness(0.75);
-  webkit-filter: brightness(0.75);
-  animation: typing 1.5s infinite;
-}
-@keyframes typing {
-  0% {
-    opacity: 0;
-  }
-
-  1% {
-    opacity: 1;
-  }
-
-  60% {
-    opacity: 1;
-  }
-
-  61% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-.tit {
-  color: #111;
-  background-color: orange;
-  display: block;
-  font-weight: bold;
-  padding: 2px;
-  margin: 0 0 4px;
-  filter: brightness(0.75);
-  webkit-filter: brightness(0.75);
+.texts-shell::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
 }
 
-.keyboard-up {
-  color: #aaa;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
-  position: relative;
-  border: 1px #000 solid;
-  min-width: 166px;
-  max-width: 166px;
-  height: 98px;
-  border-radius: 12px;
-  background-color: #111;
-  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.1),
-    0 -1px 2px rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  cursor: pointer;
-}
-.k-up-top {
-  position: absolute;
-  z-index: 50;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  height: calc(50% + 1px);
-  padding: 5px 5px 0;
-  border-bottom: 1px #000 solid;
-  box-shadow: inset 0 -1px 3px #333;
-  display: flex;
-  align-items: top;
-  justify-content: space-between;
-  flex-direction: row;
-}
-.k-up-top span {
-  sborder: 1px red solid;
-  font-size: 18px;
-  height: 70%;
-  width: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-}
-.k-up-top span:active {
-  color: #999;
-  transform: scale(0.99);
-}
-.k-up-bottom {
-  position: absolute;
-  z-index: 50;
-  bottom: -5px;
-  left: -5px;
-  right: -5px;
-  height: calc(50% + 1px);
-  padding: 0 5px 5px;
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  flex-direction: row;
-}
-.k-up-bottom span {
-  sborder: 1px red solid;
-  font-size: 16px;
-  height: 70%;
-  width: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-}
-.k-up-bottom span:active {
-  color: #999;
-  transform: scale(0.97);
-}
-.k-up-center {
-  position: relative;
-  z-index: 100;
-  min-width: 77px;
-  max-width: 77px;
-  height: 77px;
-  margin: 10px auto 10px;
-  overflow: hidden;
-  border: 1px #000 solid;
-  border-radius: 22%;
-  box-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
-    0 0 2px #666, 1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 4px #070707,
-    0 0 4px #070707, 0 0 4px #070707;
-  background-color: #111;
-}
-.k-up-center:before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 35px;
-  bottom: -10px;
-  transform: rotate(45deg);
-  transform-origin: center;
-  width: 5px;
-  background-color: #444;
-  filter: blur(5px);
-}
-.k-up-center-inner {
-  position: relative;
-  min-width: 49px;
-  max-width: 49px;
-  height: 49px;
-  margin: 12px auto 12px;
-  border: 1px #000 solid;
-  border-radius: 22%;
-  box-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
-    0 0 2px #666, 1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 4px #070707,
-    0 0 4px #070707, 0 0 4px #070707,
-    inset 1px -1px 1px rgba(255, 255, 255, 0.05),
-    inset -1px 1px 1px rgba(0, 0, 0, 0.4);
-  background-color: #111;
-}
-.k-up-center-inner:active {
-  transform: scale(0.98);
-}
-.k-up-center-up {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  right: 10px;
-  height: 14px;
+.drawing-shell{
   aborder: 1px red solid;
-  cursor: pointer;
-}
-.k-up-center-down {
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  height: 14px;
-  aborder: 1px red solid;
-  cursor: pointer;
-}
-.k-up-center-left {
-  position: absolute;
-  left: 0;
-  top: 10px;
-  bottom: 10px;
-  width: 14px;
-  aborder: 1px red solid;
-}
-.k-up-center-right {
-  position: absolute;
-  right: 0;
-  top: 10px;
-  bottom: 10px;
-  width: 14px;
-  aborder: 1px red solid;
-}
-.k-up-center-up:active,
-.k-up-center-down:active {
-  left: 18px;
-  right: 18px;
-  background-color: #080808;
-  filter: blur(15px);
-}
-.k-up-center-left:active,
-.k-up-center-right:active {
-  top: 18px;
-  bottom: 18px;
-  background-color: #080808;
-  filter: blur(15px);
-}
-.k-up-left {
-  position: absolute;
-  left: 0;
-  top: 34%;
-  z-index: 80;
-  background-color: #111;
-  aborder: 1px #fff solid;
-  border-top-right-radius: 24%;
-  border-bottom-right-radius: 24%;
-  height: 30%;
-  width: 20%;
-  box-shadow: inset -1px 1px 2px #000, 0 0 4px #444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  font-size: 14px;
-}
-.k-up-left:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: 5px;
-  left: 0;
-  bottom: -3px;
-  height: 1.5px;
-  background-color: #000;
-  filter: blur(1px);
-}
-.k-up-left:active {
-  color: #999;
-  transform: scale(0.98);
-  transform-origin: center left;
-}
-.k-up-right {
-  position: absolute;
-  right: 0;
-  top: 34%;
-  z-index: 80;
-  background-color: #111;
-  aborder: 1px #fff solid;
-  border-top-left-radius: 24%;
-  border-bottom-left-radius: 24%;
-  height: 30%;
-  width: 20%;
-  box-shadow: inset 1px 1px 2px #000, 0 0 4px #444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  font-size: 14px;
-}
-.k-up-right:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 5px;
-  right: 0;
-  bottom: -3px;
-  height: 1.5px;
-  background-color: #000;
-  filter: blur(1px);
-}
-.k-up-right:active {
-  color: #999;
-  transform: scale(0.98);
-  transform-origin: center right;
-}
-
-.bg-img-cover {
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1111;
-  display: flex;
-  xdisplay: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #999;
-  qbackground-color: red;
-  mix-blend-mode: multiply;
-  opacity: 1;
-}
-.bg-img-cover-mask {
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  background-color: #fff;
-  filter: blur(15px);
-  -webkit-filter: blur(15px);
-  border-radius: 20%;
-}
-.bg {
-  z-index: 1000;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  opacity: 0.02;
-  pointer-events: none;
-  background-position: center;
-  background-image: url("");
-  filter: grayscale(0.5);
-  webkit-filter: grayscale(0.5);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 197, 0, 1) 12%,
-    rgba(244, 255, 0, 1) 26%,
-    rgba(124, 255, 0, 1) 37%,
-    rgba(67, 255, 178, 1) 45%,
-    rgba(0, 255, 251, 1) 52%,
-    rgba(0, 171, 255, 1) 62%,
-    rgba(69, 0, 255, 1) 73%,
-    rgba(214, 0, 255, 1) 89%,
-    rgba(255, 0, 0, 1) 100%
-  );
-  background-size: 20px 60px;
-  background-repeat: repeat;
-}
-.crt {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-size: 2px;
-  background-repeat: repeat;
-  background-position: center;
-  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
-  z-index: 999;
-  mix-blend-mode: soft-light;
-  filter: blur(0.4px);
-  -webkit-filter: blur(0.4px);
-  backdrop-filter: blur(1px) saturate(1.2) brightness(1.8);
-  backdrop-webkit-filter: blur(1px) saturate(1.2) brightness(1.8);
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.painting {
-  position: relative;
-  z-index: 30;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
-  overflow: hidden;
-  height: 90vh;
-
-  filter: contrast(1.1) brightness(0.92);
-  -webkit-filter: contrast(1.1) brightness(0.92);
-}
-.painting span {
-  color: #000;
-  position: absolute;
-  z-index: 1000;
-  font-size: 14px;
-  left: 40px;
-  top: 40px;
-}
-.painting iframe {
-  position: absolute;
-  width: 100vw;
-  height: calc(90vh + 300px);
-  transform: translate(0, -250px);
-}
-
-.music-space-filter-fix2 {
-  filter: brightness(0.7) saturate(6);
-  -webkit-filter: brightness(0.7) saturate(6);
-}
-.music-space-filter-fix1 {
-  filter: contrast(2) hue-rotate(310deg);
-  -webkit-filter: contrast(2) hue-rotate(310deg);
-}
-.music-space {
-  adisplay: none;
-  position: relative;
-  overflow: hidden;
-  background-color: #ccc;
-  height: 80vh;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-
-  filter: invert(0.3) sepia(1);
-  -webkit-filter: invert(0.3) sepia(1);
-
-  display: flex;
-  aalign-items: start;
-  justify-content: end;
-  flex-direction: column;
-}
-.music-bg {
-  opacity: 0.2;
-  position: fixed;
-  z-index: 15;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-size: cover;
-  background-position: center 12%;
-  background-image: url("https://images.unsplash.com/photo-1623638309606-e587fda3fb49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njg4MTEzNjR8&ixlib=rb-4.1.0&q=80&w=400");
-  mix-blend-mode: hard-light;
-}
-.music-space span {
-  position: relative;
-  z-index: 20;
-  font-size: 14px;
-  padding: 0 40px 30px;
-}
-.piano-shell {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  qwidth: 100%;
+  overflow: auto;
   white-space: nowrap;
-  height: 100%;
-  aborder: 1px red solid;
-
-  transform-origin: 20% 70%;
-  transform: perspective(130px) rotateX(-10deg);
-
-  filter: blur(5px);
+  
+  padding: 0 40px 0;
+  margin: 0 -40px 0;
 }
-@media screen and (max-width: 467px) {
-  .piano-shell {
-    position: absolute;
-    top: 0;
-    left: -20%;
-    right: -10%;
-    height: 80%;
+.draws-shell{
+  vertical-align: top;
+  display: inline-block;
+  apadding: 0 0 20px;
+  margin-right: 2px;
+}
+.draw{
+  aborder: 1px blue solid;
+  awidth: 120px;
+  height: 100px;
+  cursor: pointer;
+}
+.draw img{
+  width:auto;
+  height: 100%;
+}
+.draws-shell span {
+  margin: 0;
+  font-size: 14px;
+  display: inline-block;
+}
+.draws-shell p {
+  color: #555;
+  margin: 3.5px 0 0;
+  font-size: 12px;
+  display: inline-block;
+  text-align: right;
+}
+.draw-text-shell{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: row;
+}
+@media screen and (min-width: 990px){
+.drawing-shell{
+    padding: 0 calc(50vw - 400px);
+    margin: 0 calc(-50vw + 400px);
+  
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
   }
 }
+.drawing-shell {
+  /* For Internet Explorer and Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+  /* Retain scroll functionality but hide scrollbar on WebKit browsers (Chrome, Safari, Opera) */
+  overflow-y: scroll; /* or overflow: auto; or overflow: scroll; */
+}
+.drawing-shell::-webkit-scrollbar {
+  display: none;
+  width: 0px; /* Optional: also set width to 0px */
+  background: transparent; /* Optional: make the scrollbar area transparent */
+}
 
+.musics-shell{
+  aborder: 1px red solid;
+  overflow: auto;
+  white-space: nowrap;
+  
+  padding: 0 40px 0;
+  margin: 0 -40px 0;
+}
+.music-shell{
+  vertical-align: top;
+  display: inline-block;
+  apadding: 0 0 20px;
+  margin-right: 12px;
+}
+.music{
+  aborder: 1px blue solid;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  
+  background-size: cover;
+  background-position: center;
+}
+.music-shell span {
+  margin: 2px 0 0;
+  font-size: 14px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  width: 120px; 
+}
+.music-shell p {
+  color: #555;
+  margin: 0;
+  font-size: 12px;
+  display: block;
+}
+.music-text-shell{
+  aborder: 1px blue solid;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 34px;
+}
+@media screen and (min-width: 990px){
+.musics-shell{
+    padding: 0 calc(50vw - 400px);
+    margin: 0 calc(-50vw + 400px);
+  
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  }
+}
+.musics-shell {
+  /* For Internet Explorer and Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+  /* Retain scroll functionality but hide scrollbar on WebKit browsers (Chrome, Safari, Opera) */
+  overflow-y: scroll; /* or overflow: auto; or overflow: scroll; */
+}
+.musics-shell::-webkit-scrollbar {
+  display: none;
+  width: 0px; /* Optional: also set width to 0px */
+  background: transparent; /* Optional: make the scrollbar area transparent */
+}
+.music-shell:nth-child(1) .music{
+  background-image: url("http://yam-mathhub.github.io/media/image/lip.jpg");
+}
+.music-shell:nth-child(2) .music{
+  background-position: 0% 0%;
+  background-image: url("http://yam-mathhub.github.io/media/image/the-last-of-the-last.png");
+}
+.music-shell:nth-child(3) .music{
+  background-position: 16% 0%;
+  background-image: url("http://yam-mathhub.github.io/media/image/me.png");
+}
+.music-shell:nth-child(4) .music{
+  background-position: 80% 0%;
+  background-size: 240%;
+  background-image: url("http://yam-mathhub.github.io/media/image/spinning.PNG");
+}
+.music-shell:nth-child(5) .music{
+  background-image: url("http://yam-mathhub.github.io/media/image/pk.png");
+}
+
+@media screen and (min-width: 467px){
+}
   </style>
 </head>
 
 <body>
-    <div class="top-space">
-      <div class="top-text-shell">
-        <span>I do a lot of <div class="word-shell">things<span>things</span><span>things</span><span>things</span><span>things</span></div>. <br><br>
-          While I may not be great at every single one, <br>I truly enjoy the <div class="word-shell">process<span>process</span><span>process</span><span>process</span><span>process</span></div>. </span>
-        <span>I study <br>Math and CS. </span>
-        <span>I draw, <br>play the piano, write music, <br>write story, <br>build websites, </span>
-        <span>eat, <br>sleep, <br>play, <br>and <div class="word-shell">daydream<span>daydream</span><span>daydream</span><span>daydream</span><span>daydream</span></div>...</span>
-      </div>
-    </div>
+  <div class="tit-top">Project</div>
 
-  <div class="writing-space">
-    <span class="writing-span">I <br>write.</span>
-    <div class="old-phone">
-      <div class="text-shell">
-        <div class="bg-img-cover">
-          <div class="bg-img-cover-mask"></div>
-        </div>
-        <div class="bg"></div>
-        <div class="crt"></div>
-
-        <div class="top">
-          <span><i class="fa-solid fa-sim-card"></i></span>
-          <span><i class="fa-solid fa-sim-card"></i></span>
-          <span><i class="fa-solid fa-battery-half"></i></span>
-        </div>
-        <div class="text" style="cursor: text;">
-          <span class="tit">陽光雨</span>
-          這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。路常常在變，遇上熟悉的事物，總會令人生出一絲安心來，即使那是微乎其微的。<br>
-          <br>
-          這裏沒有風，雨水狀的掛飾不會無故地動。抬起手臂輕掃著掛飾，它們發出如風鈴般清脆的聲音。高掛的太陽燈有一圈紅色的光暈，就如真的太陽一樣熾熱……太陽？天空？<br>
-          <br>
-          思考沒有答案的問題只會為自己徒增煩惱。席地而坐，坐累了，便躺下。聽著通風口低沉的嗡鳴聲，伴隨著掛飾晃動的叮叮聲，很快便入睡了。<br>
-          <br>
-          會夢見甚麼呢？<br><br><br>
-
-          <span class="tit">星、果、樹</span>
-          深灰色地毯很柔軟，短短的絨毛從指間溢出，又搔癢著指腹。<br>
-          <br>
-          躺在地上看向天花板，會看到漫天的星星；不知是否是散光的緣故，天上的星星真的很閃、很耀眼。<br>
-          <br>
-          高大的杉樹遮蔽了星光，在身上佈下了大片的黑暗。樹上有好多果子，外形像蘋果，但是顏色卻有紅色的、黃色的、粉綠色的、天藍色的和淺紫色的。不過，杉樹會長這樣的果實嗎？<br>
-          <br>
-          輕輕搖曳的枝條發出沙沙聲，碩大的果子搖搖欲墜，大樹的尖端恰好指向了天上最亮的星。眼皮越來越重，從狹縫中看，星星的光暈變成放射性的六角星。<br>
-          <br>
-          人會動、樹會動、果子會動，但星星不會動……<br>
-          <br>
-          再次睜眼時，星星好像變近了。星星動了，變得更大、更亮。<br>
-          <br>
-          星星會墜下嗎？是時候要走了。
-          <span class="typing"></span>
-
-          <br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-        <div class="bottom">
-          <span><i class="fa-solid fa-bars"></i></span>
-          <span>儲存</span>
-          <span><i class="fa-solid fa-delete-left"></i></span>
+  <div class="tit">
+    <span>Text</span>
+    <button>more</button>
+  </div>
+  <div class="text-space">
+    <div class="texts-shell">
+      <div class="text" onclick="window.open('https://yam-mathhub.github.io/project/text/sunshine-rain.html', '_blank');">
+        <div class="text-info-shell">
+          <span>陽光雨</span>
+          <p>這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，
+            像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。</p>
         </div>
       </div>
-      <div class="keyboard-up">
-        <div class="k-up-top">
-          <span><i class="fa-solid fa-minus"></i></span>
-          <span><i class="fa-solid fa-minus"></i></span>
-        </div>
-        <div class="k-up-bottom">
-          <span><i class="fa-solid fa-phone"></i></span>
-          <span><i class="fa-solid fa-power-off"></i></span>
-        </div>
-
-        <div class="k-up-center">
-          <div class="k-up-center-up"></div>
-          <div class="k-up-center-down"></div>
-          <div class="k-up-center-left"></div>
-          <div class="k-up-center-right"></div>
-
-          <div class="k-up-center-inner"></div>
-        </div>
-
-        <div class="k-up-left">
-          <i class="fa-solid fa-gear"></i>
-        </div>
-        <div class="k-up-right">
-          <i class="fa-solid fa-arrow-left"></i>
+      <div class="text" onclick="window.open('https://yam-mathhub.github.io/project/text/stars-fruits-trees.html', '_blank');">
+        <div class="text-info-shell">
+          <span style="font-size: 20px;">星、果、樹</span>
+          <p>深灰色地毯很柔軟，短短的絨毛從指間溢出，又搔癢著指腹。躺在地上看向天花板，會看到漫天的星星； 不知是否是散光的緣故，天上的星</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="painting">
-    <span>I draw.</span>
-    <iframe src="https://www.desmos.com/calculator/ltasfjwp6j?embed" frameborder=0></iframe>
+  <div class="tit">
+    <span>Drawing</span>
+    <button>more</button>
   </div>
-
-  <div class="music-space-filter-fix2">
-    <div class="music-space-filter-fix1">
-      <div class="music-space">
-        <div class="music-bg"></div>
-        <span>I make music and play piano.</span>
-        <div class="piano-shell">
-          <div class="key"></div>
-          <div class="key-b"></div>
-          <div class="key"></div>
-          <div class="key-b"><iframe src="https://www.youtube.com/embed/f2F9SboeLeo?si=-vCSBWe41I0zhwfM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-          <div class="key"></div>
-          <div class="key"><span></span></div>
-          <div class="key-b"><iframe src="https://www.youtube.com/embed/WXFtbaVmzsg?si=zHdc_hFCPBhb_NhR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-          <div class="key"></div>
-          <div class="key-b"><iframe src="https://www.youtube.com/embed/mnhJZnCEniQ?si=nM_QFmvC2QGczHD6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-          <div class="key"></div>
-          <div class="key-b"></div>
-          <div class="key"></div>
-          <div class="key"></div>
+  <div class="drawing-space">
+    <div class="drawing-shell">
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/mess.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/smt-in-my-ear.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>中耳炎</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/no-meaning-green.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/cloth.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/blue-star.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>中耳炎下的平靜 </span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/eye-so-dry.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>失眠</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/pool.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/indoor-building.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/matrix.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/sticky-n-pink.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/inside.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/flowers.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/gray-rain.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/skin.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>人工型蕁麻疹</span>
+          <p>2026</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/face.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/hurt.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/hands-n-smt.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/orange.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/noise.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/sticky.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/my-hand.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div style="height: 90vh; overflow: hidden; position: relative;">
-    <iframe src="https://www.desmos.com/calculator/mz2vwyafde?embed" style="vertical-align: top; width: 100%; height: calc(90vh + 60px); filter:invert(1);-webkit-filter:invert(1);" frameborder=0></iframe>
-    <div class="shell">
-      <div class="main-shell">
-        <div class="main">
-          <div class="m-top">
-            <span>Select all images with</span>
-            <span>things I like</span>
-            <span>Click verify once there are none left</span>
-          </div>
-          <div class="imgs">
-            <div class="img" title="cake"></div>
-            <div class="img" title="flower"></div>
-            <div class="img" title="car"></div>
-            <div class="img" title="raccoon"></div>
-            <div class="img" title="cozy room"></div>
-            <div class="img" title="butterfly"></div>
-            <div class="img" title="people mountain people sea"></div>
-            <div class="img" title="money"></div>
-            <div class="img" title="cat"></div>
-          </div>
-          <span class="wrong-mess">Please select all matching images.</span>
-          <div class="m-bottom">
-            <button id="re">
-              <i class="fa-solid fa-arrow-rotate-right"></i>
-            </button>
-            <button id="listen">
-              <i class="fa-solid fa-headphones"></i>
-            </button>
-            <button id="info">
-              <i class="fa-solid fa-circle-info"></i>
-            </button>
-
-            <button id="verify">
-              VERIFY
-            </button>
-            <button id="skip">
-              SKIP
-            </button>
-          </div>
+  <div class="tit"><span>Music</span>
+    <button>more</button>
+  </div>
+  <div class="music-space">
+    <div class="musics-shell">
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>唇峰 - 鋼琴</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>最後的最後</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>在過去暢想未來</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>Spinning In Circles</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>對火車頭感到無奈</span>
+          <p>2025</p>
         </div>
       </div>
     </div>
   </div>
 
-  <script>// Vibration function
-function vibrate() {
-  if (navigator.vibrate) {
-    navigator.vibrate(10); // 30ms subtle vibration
-  }
-}
+  <div class="tit">Code</div>
+  <div class="code-space"></div>
 
-// Scroll functionality
-const textElement = document.querySelector(".text");
-const upButton = document.querySelector(".k-up-center-up");
-const downButton = document.querySelector(".k-up-center-down");
-let scrollInterval = null;
-let scrollSpeed = 1;
+  <div class="tit">Math</div>
+  <div class="math-space"></div>
 
-// Calculate line height
-function getLineHeight() {
-  const computedStyle = window.getComputedStyle(textElement);
-  const lineHeight = computedStyle.lineHeight;
-  if (lineHeight === "normal") {
-    // Estimate line height as 1.2 times font size
-    const fontSize = parseFloat(computedStyle.fontSize);
-    return fontSize * 1.2;
-  }
-  return parseFloat(lineHeight);
-}
-
-// Scroll functions
-function scrollUp() {
-  const lineHeight = getLineHeight();
-  textElement.scrollTop = Math.max(
-    0,
-    textElement.scrollTop - lineHeight * scrollSpeed
-  );
-}
-
-function scrollDown() {
-  const lineHeight = getLineHeight();
-  const maxScroll = textElement.scrollHeight - textElement.clientHeight;
-  textElement.scrollTop = Math.min(
-    maxScroll,
-    textElement.scrollTop + lineHeight * scrollSpeed
-  );
-}
-
-// Start continuous scrolling
-function startScrolling(direction) {
-  if (scrollInterval) return; // Prevent multiple intervals
-  scrollSpeed = 1;
-  let accelerationCounter = 0;
-  // Initial scroll
-  if (direction === "up") {
-    scrollUp();
-  } else {
-    scrollDown();
-  }
-  // Start interval for continuous scrolling
-  scrollInterval = setInterval(() => {
-    if (direction === "up") {
-      scrollUp();
-    } else {
-      scrollDown();
-    }
-    // Gradually increase speed after some time
-    accelerationCounter++;
-    if (accelerationCounter > 5 && scrollSpeed < 3) {
-      scrollSpeed += 0.5;
-    }
-  }, 150); // Initial delay between scrolls
-}
-
-// Stop continuous scrolling
-function stopScrolling() {
-  if (scrollInterval) {
-    clearInterval(scrollInterval);
-    scrollInterval = null;
-    scrollSpeed = 1;
-  }
-}
-
-// Mouse events for up button
-upButton.addEventListener("mousedown", (e) => {
-  e.preventDefault();
-  vibrate();
-  startScrolling("up");
-});
-upButton.addEventListener("mouseup", stopScrolling);
-upButton.addEventListener("mouseleave", stopScrolling);
-
-// Mouse events for down button
-downButton.addEventListener("mousedown", (e) => {
-  e.preventDefault();
-  vibrate();
-  startScrolling("down");
-});
-downButton.addEventListener("mouseup", stopScrolling);
-downButton.addEventListener("mouseleave", stopScrolling);
-
-// Touch events for mobile support
-upButton.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  vibrate();
-  startScrolling("up");
-});
-upButton.addEventListener("touchend", (e) => {
-  e.preventDefault();
-  stopScrolling();
-});
-downButton.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  vibrate();
-  startScrolling("down");
-});
-downButton.addEventListener("touchend", (e) => {
-  e.preventDefault();
-  stopScrolling();
-});
-
-// Prevent context menu on long press
-upButton.addEventListener("contextmenu", (e) => e.preventDefault());
-downButton.addEventListener("contextmenu", (e) => e.preventDefault());
-
-// Add vibration to all other buttons
-document.addEventListener("DOMContentLoaded", function () {
-  // Get all the button elements
-  const buttons = [
-    ...document.querySelectorAll(".k-up-top span"),
-    ...document.querySelectorAll(".k-up-bottom span"),
-    document.querySelector(".k-up-center-inner"),
-    document.querySelector(".k-up-center-left"),
-    document.querySelector(".k-up-center-right"),
-    document.querySelector(".k-up-left"),
-    document.querySelector(".k-up-right")
-  ].filter(Boolean); // Remove any null elements
-
-  // Add vibration to each button
-  buttons.forEach((button) => {
-    // For mouse/click events
-    button.addEventListener("mousedown", () => {
-      vibrate();
-    });
-
-    // For touch events
-    button.addEventListener("touchstart", (e) => {
-      vibrate();
-    });
-  });
-});
-
-
-    // 正確答案：藍色門的索引 (1,2,5,8,9 對應索引 0,1,4,7,8)
-    const correctIndexes = [0, 1, 4, 7, 8];
-    let selectedIndexes = [];
-    let hasVerified = false;
-    let rotationDegree = 0;
-    // 獲取所有圖片元素
-    const images = document.querySelectorAll('.img');
-    const verifyBtn = document.getElementById('verify');
-    const skipBtn = document.getElementById('skip');
-    const reBtn = document.getElementById('re');
-    const wrongMess = document.querySelector('.wrong-mess');
-    const main = document.querySelector('.main');
-    const shell = document.querySelector('.shell');
-    // 為每個圖片添加點擊事件
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        if (selectedIndexes.includes(index)) {
-          // 如果已選中，則取消選中
-          selectedIndexes = selectedIndexes.filter(i => i !== index);
-          img.classList.remove('selected');
-        } else {
-          // 如果未選中，則選中
-          selectedIndexes.push(index);
-          img.classList.add('selected');
-        }
-      });
-    });
-    // 驗證按鈕功能
-    verifyBtn.addEventListener('click', () => {
-      // 檢查選中的圖片是否正確
-      const isCorrect = selectedIndexes.length === correctIndexes.length &&
-        selectedIndexes.every(index => correctIndexes.includes(index));
-      if (isCorrect) {
-        // 驗證成功，跳轉到指定網站
-        window.location.href = 'https://youtu.be/AxE4TltnvjI?si=KnpJ8WPAlJMY7E4R';
-      } else {
-        // 驗證失敗
-        wrongMess.style.display = 'block';
-        if (!hasVerified) {
-          verifyBtn.style.display = 'none';
-          skipBtn.style.display = 'inline-block';
-          hasVerified = true;
-        }
-      }
-    });
-    // Skip按鈕功能
-    skipBtn.addEventListener('click', () => {
-      // 隱藏skip按鈕，顯示verify按鈕
-      skipBtn.style.display = 'none';
-      verifyBtn.style.display = 'inline-block';
-      // 讓main開始彈跳
-      shell.style.animation = 'bounce 0.6s ease-in-out 3';
-      // 重置選擇狀態
-      selectedIndexes = [];
-      images.forEach(img => {
-        img.classList.remove('selected');
-      });
-      wrongMess.style.display = 'none';
-      hasVerified = false;
-      // 清除彈跳動畫
-      setTimeout(() => {
-        shell.style.animation = '';
-      }, 1800);
-    });
-    // 刷新按鈕功能
-    reBtn.addEventListener('click', () => {
-      rotationDegree += 90;
-      main.style.transform = `rotate(${rotationDegree}deg)`;
-    });
+  <script>
   </script>
-  </body>
+</body>
 
 </html>
