@@ -1,0 +1,562 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+  <title>Project</title>
+
+  <style>body {
+  font-family: "MS Sans Serif", sans-serif;
+
+  margin: 0;
+  padding: 40px;
+  position: relative;
+
+  -webkit-tap-highlight-color: transparent;
+  background-color: #eee;
+
+  color: #000;
+  font-size: 18px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media screen and (min-width: 990px){
+  body{
+    padding: 40px calc(50vw - 400px);
+  }
+}
+
+.tit-top{
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 50px;
+}
+.tit{
+  font-weight: bold;
+  margin: 0 0 12px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.tit span{
+  font-size: 18px;
+}
+.tit button{
+  font-size: 14px;
+  color: #666;
+  background-color: #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  padding: 3px 12px;
+  margin: 0;
+}
+
+.text-space,
+.drawing-space,
+.music-space,
+.code-space,
+.math-space{
+  margin:0 0 50px;
+}
+
+
+
+.texts-shell{
+  aborder: 1px red solid;
+  overflow: auto;
+  white-space: nowrap;
+  
+  padding: 0 40px 0;
+  margin: 0 -40px 0;
+}
+.text{
+  font-family: "Noto Serif CJK TC", "Source Han Serif TC", 
+    "Source Han Serif SC", "Songti TC", "SimSun", serif;
+  vertical-align: top;
+  display: inline-block;
+  width:90px;
+  height: 120px;
+  padding: 4px;
+  margin-right: 12px;
+  background-color: #fff;
+  aborder: 1px blue solid;
+  overflow: hidden;
+}
+.text-info-shell{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  
+  writing-mode: vertical-lr; /* Vertical lines stack Left to Right */
+  text-orientation: mixed; 
+}
+.text span{
+  font-size: 24px;
+  font-weight: bold;
+  height: 120px;
+  margin:2px 4px 2px;
+}
+.text p{
+  aborder: 1px blue solid;
+  color:#aaa;
+  margin:0;
+  font-size: 10px;
+  height: 120px;
+  white-space: wrap;
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+@media screen and (min-width: 990px){
+.texts-shell{
+    padding: 0 calc(50vw - 400px);
+    margin: 0 calc(-50vw + 400px);
+  
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  }
+}
+.texts-shell {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+  
+}
+.texts-shell::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
+}
+
+.drawing-shell{
+  aborder: 1px red solid;
+  overflow: auto;
+  white-space: nowrap;
+  
+  padding: 0 40px 0;
+  margin: 0 -40px 0;
+}
+.draws-shell{
+  vertical-align: top;
+  display: inline-block;
+  apadding: 0 0 20px;
+  margin-right: 2px;
+}
+.draw{
+  aborder: 1px blue solid;
+  awidth: 120px;
+  height: 100px;
+}
+.draw img{
+  width:auto;
+  height: 100%;
+}
+.draws-shell span {
+  margin: 0;
+  font-size: 14px;
+  display: inline-block;
+}
+.draws-shell p {
+  color: #555;
+  margin: 3.5px 0 0;
+  font-size: 12px;
+  display: inline-block;
+  text-align: right;
+}
+.draw-text-shell{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: row;
+}
+@media screen and (min-width: 990px){
+.drawing-shell{
+    padding: 0 calc(50vw - 400px);
+    margin: 0 calc(-50vw + 400px);
+  
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  }
+}
+.drawing-shell {
+  /* For Internet Explorer and Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+  /* Retain scroll functionality but hide scrollbar on WebKit browsers (Chrome, Safari, Opera) */
+  overflow-y: scroll; /* or overflow: auto; or overflow: scroll; */
+}
+.drawing-shell::-webkit-scrollbar {
+  display: none;
+  width: 0px; /* Optional: also set width to 0px */
+  background: transparent; /* Optional: make the scrollbar area transparent */
+}
+
+.musics-shell{
+  aborder: 1px red solid;
+  overflow: auto;
+  white-space: nowrap;
+  
+  padding: 0 40px 0;
+  margin: 0 -40px 0;
+}
+.music-shell{
+  vertical-align: top;
+  display: inline-block;
+  apadding: 0 0 20px;
+  margin-right: 12px;
+}
+.music{
+  aborder: 1px blue solid;
+  width: 120px;
+  height: 120px;
+  
+  background-size: cover;
+  background-position: center;
+}
+.music-shell span {
+  margin: 2px 0 0;
+  font-size: 14px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  width: 120px; 
+}
+.music-shell p {
+  color: #555;
+  margin: 0;
+  font-size: 12px;
+  display: block;
+}
+.music-text-shell{
+  aborder: 1px blue solid;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 34px;
+}
+@media screen and (min-width: 990px){
+.musics-shell{
+    padding: 0 calc(50vw - 400px);
+    margin: 0 calc(-50vw + 400px);
+  
+  mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  /* Vendor prefix for broader compatibility, especially with older browsers */
+  -webkit-mask-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(50vw - 400px), rgba(0, 0, 0, 1) calc(50vw + 400px), rgba(0, 0, 0, 0) 100%);
+  }
+}
+.musics-shell {
+  /* For Internet Explorer and Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+  /* Retain scroll functionality but hide scrollbar on WebKit browsers (Chrome, Safari, Opera) */
+  overflow-y: scroll; /* or overflow: auto; or overflow: scroll; */
+}
+.musics-shell::-webkit-scrollbar {
+  display: none;
+  width: 0px; /* Optional: also set width to 0px */
+  background: transparent; /* Optional: make the scrollbar area transparent */
+}
+.music-shell:nth-child(1) .music{
+  background-image: url("http://yam-mathhub.github.io/media/image/lip.jpg");
+}
+.music-shell:nth-child(2) .music{
+  background-position: 80% 0%;
+  background-size: 240%;
+  background-image: url("http://yam-mathhub.github.io/media/image/spinning.PNG");
+}
+.music-shell:nth-child(3) .music{
+  background-image: url("http://yam-mathhub.github.io/media/image/pk.png");
+}
+
+
+
+
+
+
+@media screen and (min-width: 467px){
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="tit-top">Project</div>
+
+  <div class="tit">
+    <span>Text</span>
+    <button>more</button>
+  </div>
+  <div class="text-space">
+    <div class="texts-shell">
+      <div class="text">
+        <div class="text-info-shell">
+          <span>陽光雨</span>
+          <p>這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，
+            像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。</p>
+        </div>
+      </div>
+      <div class="text">
+        <div class="text-info-shell">
+          <span style="font-size: 20px;">星、果、樹</span>
+          <p>深灰色地毯很柔軟，短短的絨毛從指間溢出，又搔癢著指腹。躺在地上看向天花板，會看到漫天的星星； 不知是否是散光的緣故，天上的星</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tit">
+    <span>Drawing</span>
+    <button>more</button>
+  </div>
+  <div class="drawing-space">
+    <div class="drawing-shell">
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/mess.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/smt-in-my-ear.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>中耳炎</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/no-meaning-green.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/cloth.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/blue-star.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>中耳炎下的平靜 </span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/eye-so-dry.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>失眠</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/pool.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/indoor-building.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/matrix.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/sticky-n-pink.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/inside.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/flowers.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/gray-rain.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/skin.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span>人工型蕁麻疹</span>
+          <p>2026</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/face.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/hurt.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/hands-n-smt.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/orange.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/noise.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/sticky.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="draws-shell">
+        <div class="draw">
+          <img src='https://yam-mathhub.github.io/media/image/my-hand.png'>
+        </div>
+        <div class="draw-text-shell">
+          <span></span>
+          <p>2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tit"><span>Music</span>
+    <button>more</button>
+  </div>
+  <div class="music-space">
+    <div class="musics-shell">
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>唇峰 - 鋼琴</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>Spinning In Circles</span>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="music-shell">
+        <div class="music"></div>
+        <div class="music-text-shell">
+          <span>對火車頭感到無奈</span>
+          <p>2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tit">Code</div>
+  <div class="code-space"></div>
+
+  <div class="tit">Math</div>
+  <div class="math-space"></div>
+
+  <script>
+  </script>
+</body>
+
+</html>
