@@ -29,53 +29,6 @@
   user-select: none;
 }
 
-.menu-shell {
-  pointer-events: none;
-  position: sticky;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 10px;
-  text-align: center;
-  height: 50px;
-  margin: -70px 0 0;
-}
-.menu {
-  pointer-events: visibleFill;
-  abackground-color: #ccc;
-  display: inline-block;
-  padding: 6px 10px;
-  font-size: 14px;
-  border-radius: 14px;
-
-  backdrop-filter: blur(4px) invert(0.1);
-  -webkit-backdrop-filter: blur(4px) invert(0.1);
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.menu span {
-  padding: 2px 8px;
-}
-.menu-name {
-  color: #444;
-  font-family: "Courier New", Courier, monospace;
-  margin-right: 15px;
-  font-weight: bold;
-}
-.menu-bnt {
-  font-family: "MS Sans Serif", sans-serif;
-  cursor: pointer;
-  color: #777;
-}
-#now {
-  background-color: rgba(255, 255, 255, 0.25);
-  border-radius: 14px;
-}
-
 .top-space {
   position: relative;
   font-family: "Courier New", Courier, monospace;
@@ -1001,16 +954,6 @@
 </head>
 
 <body>
-
-  <div class="sticky-shell">
-    <div class="menu-shell">
-      <div class="menu">
-        <span class="menu-name">I am me</span>
-        <span class="menu-bnt" id="now">I...</span>
-        <span class="menu-bnt">About</span>
-        <span class="menu-bnt">Contact Me</span>
-      </div>
-    </div>
     <div class="top-space">
       <div class="top-text-shell">
         <span>I do a lot of <div class="word-shell">things<span>things</span><span>things</span><span>things</span><span>things</span></div>. <br><br>
@@ -1020,7 +963,6 @@
         <span>eat, <br>sleep, <br>play, <br>and <div class="word-shell">daydream<span>daydream</span><span>daydream</span><span>daydream</span><span>daydream</span></div>...</span>
       </div>
     </div>
-  </div>
 
   <div class="writing-space">
     <span class="writing-span">I <br>write.</span>
@@ -1140,15 +1082,15 @@
             <span>Click verify once there are none left</span>
           </div>
           <div class="imgs">
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
+            <div class="img" title="cake"></div>
+            <div class="img" title="flower"></div>
+            <div class="img" title="car"></div>
+            <div class="img" title="raccoon"></div>
+            <div class="img" title="cozy room"></div>
+            <div class="img" title="butterfly"></div>
+            <div class="img" title="people mountain people sea"></div>
+            <div class="img" title="money"></div>
+            <div class="img" title="cat"></div>
           </div>
           <span class="wrong-mess">Please select all matching images.</span>
           <div class="m-bottom">
