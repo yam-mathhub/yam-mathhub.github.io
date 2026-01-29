@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+  <title>Drawing</title>
+
+  <style>body {
+  font-family: "MS Sans Serif", sans-serif;
+  margin: 0;
+  padding: 40px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #eee;
+  color: #000;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.waterfall {
+  column-count: 5;
+  column-gap: 100px;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .waterfall {
+    column-count: 4;
+  }
+}
+@media (max-width: 900px) {
+  .waterfall {
+    column-count: 3;
+  }
+}
+@media (max-width: 600px) {
+  .waterfall {
+    column-count: 2;
+  }
+}
+@media (max-width: 400px) {
+  .waterfall {
+    column-count: 1;
+  }
+}
+
+.image-card {
+  break-inside: avoid;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  margin: 0 0 100px;
+}
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.image-card:hover img {
+}
+.image-info {
+  padding: 2px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #f0f0f0;
+}
+.image-title-year {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.image-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+.image-year {
+  font-size: 12px;
+  margin: 3.5px 0 0;
+  color: #555;
+}
+.image-description {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #555;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eee;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.modal-content {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  animation: zoomIn 0.3s ease;
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.modal-content img {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-button {
+  position: fixed;
+  z-index: 1001;
+  top: calc(50%);
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  mix-blend-mode: difference;
+  border: none;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-button:hover {
+  background: rgba(155, 155, 155, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+.prev-button {
+  left: 20px;
+}
+.next-button {
+  right: 20px;
+}
+@media (max-width: 400px) {
+  .prev-button {
+    left: 5px;
+  }
+  .next-button {
+    right: 5px;
+  }
+}
+.close {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  color: #666;
+  opacity: 0.5;
+  font-size: 40px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1001;
+}
+.close:hover {
+  color: #bbb;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="waterfall" id="waterfall">
+  </div>
+
+  <!-- 模态框 -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <button class="nav-button prev-button">‹</button>
+    <button class="nav-button next-button">›</button>
+
+    <div class="modal-container">
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="">
+      </div>
+    </div>
+  </div>
+
+  <script>const images = [
+  {
+    url: "https://yam-mathhub.github.io/media/image/mess.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/smt-in-my-ear.png",
+    title: "中耳炎",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/red-bird.jpg",
+    title: "",
+    year: "2024",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/no-meaning-green.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/cloth.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/blue-star.png",
+    title: "中耳炎下的平靜",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/eye-so-dry.png",
+    title: "失眠",
+    year: "2025",
+    description:
+      ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/pool.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/indoor-building.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/matrix.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/sticky-n-pink.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/inside.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/flowers.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/flower-time.jpg",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/smt-to-eat.jpg",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/gray-rain.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/hand.jpg",
+    title: "",
+    year: "2023",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/skin.png",
+    title: "人工型蕁麻疹",
+    year: "2026",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/face.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/red-flower.jpg",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/hurt.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/hands-n-smt.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/orange.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/bird.jpg",
+    title: "",
+    year: "2022",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/noise.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/sticky.png",
+    title: "",
+    year: "2025",
+    description: ""
+  },
+  {
+    url: "https://yam-mathhub.github.io/media/image/my-hand.png",
+    title: "",
+    year: "2025",
+    description: ""
+  }
+];
+// 创建瀑布流
+function createWaterfall() {
+  const waterfall = document.getElementById("waterfall");
+  images.forEach((image, index) => {
+    const card = document.createElement("div");
+    card.className = "image-card";
+    const img = document.createElement("img");
+    img.src = image.url;
+    img.alt = image.title;
+    img.loading = "lazy";
+    // 随机延迟加载效果
+    img.style.animationDelay = `${index * 0.05}s`;
+    img.style.animation = "fadeIn 0.5s ease forwards";
+    card.appendChild(img);
+    // 添加标题、年份和描述信息
+    const info = document.createElement("div");
+    info.className = "image-info";
+    // 创建标题和年份容器
+    const titleYear = document.createElement("div");
+    titleYear.className = "image-title-year";
+    titleYear.innerHTML = `
+          <div class="image-title">${image.title}</div>
+          <div class="image-year">${image.year}</div>
+        `;
+    // 创建描述元素
+    const description = document.createElement("div");
+    description.className = "image-description";
+    description.textContent = image.description;
+    info.appendChild(titleYear);
+    info.appendChild(description);
+    card.appendChild(info);
+    // 点击事件
+    card.addEventListener("click", () => openModal(image, index));
+    waterfall.appendChild(card);
+  });
+}
+// 打开模态框
+function openModal(image, index) {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  modal.style.display = "block";
+  modalImg.src = image.url;
+  // 防止背景滚动
+  document.body.style.overflow = "hidden";
+  // 更新当前图片索引
+  currentImageIndex = index;
+}
+// 关闭模态框
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+}
+// 导航到上一张图片
+function showPrevImage() {
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  openModal(images[currentImageIndex], currentImageIndex);
+}
+// 导航到下一张图片
+function showNextImage() {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  openModal(images[currentImageIndex], currentImageIndex);
+}
+// 事件监听
+document.addEventListener("DOMContentLoaded", () => {
+  createWaterfall();
+  // 关闭按钮
+  document.querySelector(".close").addEventListener("click", closeModal);
+  // 导航按钮
+  document
+    .querySelector(".prev-button")
+    .addEventListener("click", showPrevImage);
+  document
+    .querySelector(".next-button")
+    .addEventListener("click", showNextImage);
+  // 点击背景关闭
+  document.getElementById("imageModal").addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  });
+  // ESC键关闭
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    } else if (e.key === "ArrowLeft") {
+      showPrevImage();
+    } else if (e.key === "ArrowRight") {
+      showNextImage();
+    }
+  });
+});
+// 当前图片索引
+let currentImageIndex = -1;
+
+  </script>
+</body>
+
+</html>
