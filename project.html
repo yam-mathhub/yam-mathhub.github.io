@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
   <meta name="keywords" content="">
   <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,370 +10,438 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
   <link href="" rel="shortcut icon" />
   <title>Works and Projects</title>
-  <style>body {
-  font-family: "MS Sans Serif", sans-serif;
-  margin: 0;
-  padding: 40px;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  background-color: #eee;
-  color: #fff;
-  font-size: 18px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.filter {
-  position: sticky;
-  top:0;
-  z-index:100;
-  padding: 20px 0 5px;
-  margin: 0;
-  background-color: #eee;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.fil-l{
-  white-space: nowrap;
-  overflow: auto;
-}
-.fil-l::-webkit-scrollbar {
-  display: none;
-}
-.fil-l {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.fil-r{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.filter button{
-  color: #000;
-  background-color: transparent;
-  border: none;
-  font-size: 14px;
-  padding:2px 8px 0;
-  margin: 0 2px 0;
-  cursor: pointer;
-}
-.fil-r button{
-  font-size: 16px;
-  font-weight: bold;
-  width:16px;
-  padding:2px 10px 2px;
-  margin: 2px 4px 0;
-  text-align: center;
-  color:#444;
-}
-.fil-r button:last-child{
-  font-size: 18.5px;
-}
-@media (max-width:500px){
-  .filter button{
-    padding:2px 4px 0;
-    margin: 0 2px 0;
-  }
-  .fil-r button{
-  padding:2px 10px 2px;
-  margin: 2px 4px 0;
-}
-}
-.filter button.active {
-  border-bottom: 2px solid #000;
-}
-.fil-r button.active {
-  border-bottom: none;
-  color: #007bff;
-}
-.waterfall {
-  position: relative;
-  z-index:10;
-  column-count: 5;
-  column-gap: 20px;
-  margin: 0;
-}
-.waterfall.list-mode {
-  column-count: 1;
-  column-gap: 0;
-  display: block;
-}
-@media (max-width: 1200px) {
-  .waterfall {
-    column-count: 4;
-  }
-}
-@media (max-width: 900px) {
-  .waterfall {
-    column-count: 3;
-  }
-}
-@media (max-width: 600px) {
-  .waterfall {
-    column-count: 2;
-  }
-  body {
-    padding: 40px 20px;
-  }
-}
-@media (max-width: 400px) {
-  .waterfall {
-    column-count: 1;
-  }
-}
-.image-card {
-  break-inside: avoid;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  margin: 0 0 20px;
-}
-.image-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-}
-.thumbnail iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-}
-.image-info {
-  padding: 2px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-top: 1px solid #f0f0f0;
-}
-.image-card.text .image-info {
-  border-top: none;
-}
-.image-title-year {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.image-title {
-  font-size: 14px;
-  font-weight: 400;
-  color: #000;
-}
-.image-year {
-  font-size: 12px;
-  margin: 3.5px 0 0;
-  color: #555;
-}
-.image-category {
-  display: none;
-  font-size: 12px;
-  color: #555;
-}
-.image-description {
-  font-size: 12px;
-  margin-top: 5px;
-  color: #555;
-  white-space: pre-wrap;
-}
-.waterfall.list-mode .image-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #f0f0f0;
-}
-.waterfall.list-mode .thumbnail {
-  min-width: 60px;
-  height: 60px;
-}
-.waterfall.list-mode .thumbnail img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-}
-.waterfall.list-mode .thumbnail iframe {
-  width: 96px;
-  height: 54px;
-}
-.waterfall.list-mode .image-info {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  border-top: none;
-}
-.waterfall.list-mode .image-title-year {
-  flex: 2;
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-}
-.waterfall.list-mode .image-description {
-  flex: 3;
-  margin-top: 0;
-  max-width: 40ch;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.waterfall.list-mode .image-category {
-  display: block;
-  flex: 1;
-}
-@media (max-width: 600px) {
-  .waterfall.list-mode .thumbnail {
-    min-width: 40px;
-    height: 40px;
-  }
-  .waterfall.list-mode .thumbnail img {
-    width: 40px;
-    height: 40px;
-  }
-  .waterfall.list-mode .thumbnail iframe {
-    width: 71px;
-    height: 40px;
-  }
-  .waterfall.list-mode .image-info {
-    gap: 10px;
-  }
-  .waterfall.list-mode .image-title-year {
-    flex: 3;
-  }
-  .waterfall.list-mode .image-description {
-    display: none;           /* 手機尺寸列表模式下隱藏描述 */
-  }
-  .waterfall.list-mode .image-category {
-    flex: 2;
-    order: 3;
-  }
-  .waterfall.list-mode .image-title {
-    font-size: 12px;
-  }
-  .waterfall.list-mode .image-year {
-    font-size: 10px;
-  }
-  .waterfall.list-mode .image-category {
-    font-size: 10px;
-  }
-}
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #eee;
-  animation: fadeIn 0.3s ease;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.modal-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
-.modal-content {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  animation: zoomIn 0.3s ease;
-}
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.modal-content img {
-  width: 100%;
-  height: 100vh;
-  display: block;
-  object-fit: contain;
-}
-.nav-button {
-  position: fixed;
-  z-index: 1001;
-  top: calc(50%);
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0);
-  color: #fff;
-  mix-blend-mode: difference;
-  border: none;
-  width: 45px;
-  height: 45px;
-  font-size: 24px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-button:hover {
-  background: rgba(155, 155, 155, 0.2);
-  transform: translateY(-50%) scale(1.1);
-}
-.prev-button {
-  left: 20px;
-}
-.next-button {
-  right: 20px;
-}
-@media (max-width: 400px) {
-  .prev-button {
-    left: 5px;
-  }
-  .next-button {
-    right: 5px;
-  }
-}
-.close {
-  position: fixed;
-  top: 20px;
-  right: 40px;
-  color: #666;
-  opacity: 0.5;
-  font-size: 40px;
-  font-weight: 300;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  z-index: 1001;
-}
-.close:hover {
-  color: #bbb;
-}
+  <style>
+    body {
+      font-family: "MS Sans Serif", sans-serif;
+      margin: 0;
+      padding: 40px;
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #eee;
+      color: #fff;
+      font-size: 18px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .filter {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 20px 0 5px;
+      margin: 0;
+      background-color: #eee;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fil-l {
+      white-space: nowrap;
+      overflow: auto;
+    }
+
+    .fil-l::-webkit-scrollbar {
+      display: none;
+    }
+
+    .fil-l {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .fil-r {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .filter button {
+      color: #000;
+      background-color: transparent;
+      border: none;
+      font-size: 14px;
+      padding: 2px 8px 0;
+      margin: 0 2px 0;
+      cursor: pointer;
+    }
+
+    .fil-r button {
+      font-size: 16px;
+      font-weight: bold;
+      width: 16px;
+      padding: 2px 10px 2px;
+      margin: 2px 4px 0;
+      text-align: center;
+      color: #444;
+    }
+
+    .fil-r button:last-child {
+      font-size: 18.5px;
+    }
+
+    @media (max-width:500px) {
+      .filter button {
+        padding: 2px 4px 0;
+        margin: 0 2px 0;
+      }
+
+      .fil-r button {
+        padding: 2px 10px 2px;
+        margin: 2px 4px 0;
+      }
+    }
+
+    .filter button.active {
+      border-bottom: 2px solid #000;
+    }
+
+    .fil-r button.active {
+      border-bottom: none;
+      color: #007bff;
+    }
+
+    .waterfall {
+      position: relative;
+      z-index: 10;
+      column-count: 5;
+      column-gap: 20px;
+      margin: 0;
+    }
+
+    .waterfall.list-mode {
+      column-count: 1;
+      column-gap: 0;
+      display: block;
+    }
+
+    @media (max-width: 1200px) {
+      .waterfall {
+        column-count: 4;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .waterfall {
+        column-count: 3;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .waterfall {
+        column-count: 2;
+      }
+
+      body {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .waterfall {
+        column-count: 1;
+      }
+    }
+
+    .image-card {
+      break-inside: avoid;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      margin: 0 0 20px;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .thumbnail iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+
+    .image-info {
+      padding: 2px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .image-card.text .image-info {
+      border-top: none;
+    }
+
+    .image-title-year {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .image-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: #000;
+    }
+
+    .image-year {
+      font-size: 12px;
+      margin: 3.5px 0 0;
+      color: #555;
+    }
+
+    .image-category {
+      display: none;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .image-description {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #555;
+      white-space: pre-wrap;
+    }
+
+    .waterfall.list-mode .image-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .waterfall.list-mode .thumbnail {
+      min-width: 60px;
+      height: 60px;
+    }
+
+    .waterfall.list-mode .thumbnail img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    .waterfall.list-mode .thumbnail iframe {
+      width: 96px;
+      height: 54px;
+    }
+
+    .waterfall.list-mode .image-info {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      border-top: none;
+    }
+
+    .waterfall.list-mode .image-title-year {
+      flex: 2;
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    .waterfall.list-mode .image-description {
+      flex: 3;
+      margin-top: 0;
+      max-width: 40ch;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .waterfall.list-mode .image-category {
+      display: block;
+      flex: 1;
+    }
+
+    @media (max-width: 600px) {
+      .waterfall.list-mode .thumbnail {
+        min-width: 40px;
+        height: 40px;
+      }
+
+      .waterfall.list-mode .thumbnail img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .waterfall.list-mode .thumbnail iframe {
+        width: 71px;
+        height: 40px;
+      }
+
+      .waterfall.list-mode .image-info {
+        gap: 10px;
+      }
+
+      .waterfall.list-mode .image-title-year {
+        flex: 3;
+      }
+
+      .waterfall.list-mode .image-description {
+        display: none;
+        /* 手機尺寸列表模式下隱藏描述 */
+      }
+
+      .waterfall.list-mode .image-category {
+        flex: 2;
+        order: 3;
+      }
+
+      .waterfall.list-mode .image-title {
+        font-size: 12px;
+      }
+
+      .waterfall.list-mode .image-year {
+        font-size: 10px;
+      }
+
+      .waterfall.list-mode .image-category {
+        font-size: 10px;
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #eee;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal-content {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: 100vh;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-button {
+      position: fixed;
+      z-index: 1001;
+      top: calc(50%);
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0);
+      color: #fff;
+      mix-blend-mode: difference;
+      border: none;
+      width: 45px;
+      height: 45px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-button:hover {
+      background: rgba(155, 155, 155, 0.2);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-button {
+      left: 20px;
+    }
+
+    .next-button {
+      right: 20px;
+    }
+
+    @media (max-width: 400px) {
+      .prev-button {
+        left: 5px;
+      }
+
+      .next-button {
+        right: 5px;
+      }
+    }
+
+    .close {
+      position: fixed;
+      top: 15px;
+      right: 25px;
+      color: #666;
+      opacity: 0.5;
+      font-size: 40px;
+      font-weight: 300;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 1001;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
   </style>
 </head>
+
 <body>
   <h2 style="color:#000; padding:0 8px; margin:0;">Works and Projects</h2>
   <p style="color:#666; padding:0 8px; margin:5px 0 0; font-size:14px;">Maybe in here, you can get to know me a little better.</p>
- 
+
   <div class="filter">
     <div class="fil-l">
       <button id="fil-all" class="active">All</button>
@@ -390,7 +459,7 @@
       <button>&#8693;</button>
     </div>
   </div>
- 
+
   <div class="waterfall" id="waterfall">
   </div>
   <div id="imageModal" class="modal">
@@ -403,467 +472,498 @@
       </div>
     </div>
   </div>
-  <script>const images = [
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/mess.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/smt-in-my-ear.png",
-    title: "中耳炎",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/red-bird.jpg",
-    title: "",
-    year: "2024",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/no-meaning-green.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/cloth.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/blue-star.png",
-    title: "中耳炎下的平靜",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/eye-so-dry.png",
-    title: "失眠",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/pool.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/indoor-building.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/matrix.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/sticky-n-pink.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/inside.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/flowers.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/flower-time.jpg",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/smt-to-eat.jpg",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/gray-rain.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/hand.jpg",
-    title: "",
-    year: "2023",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/skin.png",
-    title: "人工型蕁麻疹",
-    year: "2026",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/face.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/red-flower.jpg",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/hurt.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/hands-n-smt.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/orange.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/bird.jpg",
-    title: "",
-    year: "2022",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/noise.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/sticky.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/my-hand.png",
-    title: "",
-    year: "2025",
-    description: "",
-    category: "Drawing & Painter",
-    link: ""
-  },
-  {
-    category: "Text",
-    title: "星、果、樹",
-    year: "2025",
-    description: "深灰色地毯很柔軟，短短的絨毛從指間溢出，又搔癢著指腹。躺在地上看向天花板，會看到漫天的星星；不知是否是散光的緣故，天上的星星真的很閃、很耀眼。高大的杉樹遮蔽了星光，在身上佈下了大片的黑暗。樹上有好多果子，外形像蘋果，但是顏色卻有紅色的、黃色的、粉綠色的、天藍色的和淺紫色的。不過，杉樹會長這樣的果實嗎？輕輕搖曳的枝條發出沙沙聲，碩大的果子搖搖欲墜，大樹的尖端恰好指向了天上最亮的星。眼皮越來越重，從狹縫中看，星星的光暈變成放射性的六角星。人會動、樹會動、果子會動，但星星不會動……再次睜眼時，星星好像變近了。星星動了，變得更大、更亮。星星會墜下嗎？是時候要走了。",
-    link: "https://yam-mathhub.github.io/project/text/stars-fruits-trees.html",
-    url: ""
-  },
-  {
-    category: "Collage",
-    url: "https://i.pinimg.com/474x/f4/d0/39/f4d0397697653f47041582820100405d.jpg",
-    title: "",
-    year: "2025",
-    description: '<a href="https://www.pinterest.com/pin/861806078797839923/" target="_blank">View on Pinterest</a>',
-    link: ""
-  },
-  {
-    category: "Music",
-    title: "lips",
-    url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/lip.jpg",
-    year: "2025",
-    description: "",
-    link: "none"
-  },
-  {
-    category: "Website",
-    title: "dream",
-    year: "2025",
-    description: "",
-    url: "https://251131395.github.io/dream/just-a-dream.html",
-    link: "https://251131395.github.io/dream/just-a-dream.html"
-  },
-  {
-    category: "Other",
-    url: "https://example.com/image.jpg",
-    title: "Other example",
-    year: "2024",
-    description: "",
-    link: "https://example.com"
-  }
-];
+  <script>
+    const images = [{
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/mess.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/smt-in-my-ear.png",
+        title: "中耳炎",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/red-bird.jpg",
+        title: "",
+        year: "2024",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/no-meaning-green.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/cloth.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Collage",
+        url: "https://i.pinimg.com/474x/0a/9c/2c/0a9c2cb88005f2f6ce06cba40e2fcf89.jpg",
+        title: "",
+        year: "2026",
+        description: '<a href="https://www.pinterest.com/pin/861806078797925129/" target="_blank">View on Pinterest</a>',
+        link: ""
+      },
+      {
+        category: "Text",
+        title: "海洋搖籃曲",
+        url: "",
+        year: "2025",
+        description: "星星如雨降下<br>連月亮也陷入汪洋<br>時候告別 猶豫不決<br>開始尋覓方向<br><br>星空又再散滅<br>而大地卻靜靜出現<br>然後會是 耀陽高掛<br>稍息然後出發",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/blue-star.png",
+        title: "中耳炎下的平靜",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/eye-so-dry.png",
+        title: "失眠",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/pool.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/indoor-building.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Text",
+        title: "天地堂",
+        year: "2026",
+        description: "10:30&ensp;天<br><br><br><br><br><br>16:30&ensp;地<br><br><br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;堂<br><br><br>心 在家裏<br>人 卻滯留在學校",
+        link: "",
+        url: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/matrix.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/sticky-n-pink.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Collage",
+        url: "https://i.pinimg.com/474x/83/47/ba/8347ba415b0fde1e1f556a9a6daeac1b.jpg",
+        title: "",
+        year: "2026",
+        description: '<a href="https://www.pinterest.com/pin/861806078797866455/" target="_blank">View on Pinterest</a>',
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/inside.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/flowers.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/flower-time.jpg",
+        title: "花、流逝、雞蛋",
+        year: "2025",
+        description: "美好的事物轉瞬即逝，該如何留住它們？用記憶？",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Text",
+        title: "陽光雨",
+        year: "2025",
+        description: "這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。路常常在變，遇上熟悉的事物，總會令人生出一絲安心來，即使那是微乎其微的。<br><br>這裏沒有風，雨水狀的掛飾不會無故地動。抬起手臂輕掃著掛飾，它們發出如風鈴般清脆的聲音。高掛的太陽燈有一圈紅色的光暈，就如真的太陽一樣熾熱……太陽？天空？<br><br>思考沒有答案的問題只會為自己徒增煩惱。清席地而坐，坐累了，便躺下。聽著通風口低沉的嗡鳴聲，伴隨著掛飾晃動的叮叮聲，很快便入睡了。<br><br>會夢見甚麼呢？",
+        link: "https://yam-mathhub.github.io/project/text/sunshine-rain.html",
+        url: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/smt-to-eat.jpg",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Collage",
+        url: "https://i.pinimg.com/474x/f4/d0/39/f4d0397697653f47041582820100405d.jpg",
+        title: "",
+        year: "2026",
+        description: '<a href="https://www.pinterest.com/pin/861806078797839923/" target="_blank">View on Pinterest</a>',
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/gray-rain.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/flower-in-dark.jpg",
+        title: "這裏",
+        year: "2024",
+        description: "如在溫暖的胎盤內，被花瓣包裹着，看著外面透進來的光，是微黃的、柔和的 。",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Collage",
+        url: "https://i.pinimg.com/474x/ce/95/8c/ce958c0d4d9d2522fdc0e123423c2e1e.jpg",
+        title: "",
+        year: "2026",
+        description: '<a href="https://www.pinterest.com/pin/861806078797921058/" target="_blank">View on Pinterest</a>',
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/hand.jpg",
+        title: "",
+        year: "2023",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/skin.png",
+        title: "人工型蕁麻疹",
+        year: "2026",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/face.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/red-flower.jpg",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/hurt.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/hands-n-smt.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/orange.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/bird.jpg",
+        title: "",
+        year: "2022",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/noise.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/sticky.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/my-hand.png",
+        title: "",
+        year: "2025",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Text",
+        title: "星、果、樹",
+        year: "2025",
+        description: "深灰色地毯很柔軟，短短的絨毛從指間溢出，又搔癢著指腹。躺在地上看向天花板，會看到漫天的星星；不知是否是散光的緣故，天上的星星真的很閃、很耀眼。<br><br>高大的杉樹遮蔽了星光，在身上佈下了大片的黑暗。樹上有好多果子，外形像蘋果，但是顏色卻有紅色的、黃色的、粉綠色的、天藍色的和淺紫色的。不過，杉樹會長這樣的果實嗎？輕輕搖曳的枝條發出沙沙聲，碩大的果子搖搖欲墜，大樹的尖端恰好指向了天上最亮的星。<br><br>眼皮越來越重，從狹縫中看，星星的光暈變成放射性的六角星。人會動、樹會動、果子會動，但星星不會動……<br><br>再次睜眼時，星星好像變近了。星星動了，變得更大、更亮。<br><br>星星會墜下嗎？是時候要走了。",
+        link: "https://yam-mathhub.github.io/project/text/stars-fruits-trees.html",
+        url: ""
+      },
+      {
+        category: "Music",
+        title: "唇峰",
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/lip.jpg",
+        year: "2025",
+        description: "盡情地觸碰 但請珍重<br>笨拙地想要學懂<br>攀登 這唇峰……",
+        link: "none"
+      },
+      {
+        category: "Website",
+        title: "dream",
+        year: "2025",
+        description: "",
+        url: "https://251131395.github.io/dream/just-a-dream.html",
+        link: "https://251131395.github.io/dream/just-a-dream.html"
+      },
+      {
+        category: "Other",
+        url: "https://example.com/image.jpg",
+        title: "Other example",
+        year: "2024",
+        description: "",
+        link: "https://example.com"
+      }
+    ];
+    let currentCategory = 'All';
+    let sortByTime = false;
+    let currentImageIndex = -1;
+    let currentModalImages = [];
+    const waterfall = document.getElementById("waterfall");
 
-let currentCategory = 'All';
-let sortByTime = false;
-let currentImageIndex = -1;
-let currentModalImages = [];
-
-const waterfall = document.getElementById("waterfall");
-
-function parseYear(year) {
-  if (typeof year !== 'string') return 0;
-  if (year.includes('-')) {
-    const [y, m] = year.split('-').map(Number);
-    return new Date(y, m - 1 || 0).getTime();
-  } else {
-    return new Date(Number(year), 0).getTime();
-  }
-}
-
-function isModalType(image) {
-  return ['Drawing & Painter', 'Collage'].includes(image.category) || (image.category === 'Music' && (!image.link || image.link === 'none'));
-}
-
-function refreshWaterfall() {
-  let filtered = images.filter(image => currentCategory === 'All' || image.category === currentCategory);
-  
-  const reverseBtn = document.querySelector('.fil-r button:nth-child(4)');
-  const clockBtn = document.querySelector('.fil-r button:nth-child(3)');
-  sortByTime = clockBtn.classList.contains('active');
-  
-  if (sortByTime) {
-    filtered.sort((a, b) => {
-      const da = parseYear(a.year);
-      const db = parseYear(b.year);
-      return reverseBtn.classList.contains('active') ? da - db : db - da;
-    });
-  } else if (reverseBtn.classList.contains('active')) {
-    filtered.reverse();
-  }
-
-  waterfall.innerHTML = '';
-  currentModalImages = filtered.filter(isModalType);
-
-  filtered.forEach((image, index) => {
-    const card = document.createElement("div");
-    card.className = "image-card";
-    if (image.category === "Text") {
-      card.classList.add("text");
-    }
-
-    const thumbnail = document.createElement("div");
-    thumbnail.className = "thumbnail";
-
-    let mediaElement;
-    if (image.category !== "Text" && image.url) {
-      if (image.category === "Website") {
-        mediaElement = document.createElement("iframe");
-        mediaElement.src = image.url;
-        mediaElement.style.width = "100%";
-        mediaElement.style.aspectRatio = "1/1";
-        mediaElement.frameBorder = "0";
-        mediaElement.loading = "lazy";
+    function parseYear(year) {
+      if (typeof year !== 'string') return 0;
+      if (year.includes('-')) {
+        const [y, m] = year.split('-').map(Number);
+        return new Date(y, m - 1 || 0).getTime();
       } else {
-        mediaElement = document.createElement("img");
-        mediaElement.src = image.url;
-        mediaElement.alt = image.title;
-        mediaElement.loading = "lazy";
-        if (image.category === "Music") {
-          mediaElement.style.aspectRatio = "1/1";
-          mediaElement.style.objectFit = "cover";
+        return new Date(Number(year), 0).getTime();
+      }
+    }
+
+    function isModalType(image) {
+      return ['Drawing & Painter', 'Collage'].includes(image.category) || (image.category === 'Music' && (!image.link || image.link === 'none'));
+    }
+
+    function refreshWaterfall() {
+      let filtered = images.filter(image => currentCategory === 'All' || image.category === currentCategory);
+      const reverseBtn = document.querySelector('.fil-r button:nth-child(4)');
+      const clockBtn = document.querySelector('.fil-r button:nth-child(3)');
+      sortByTime = clockBtn.classList.contains('active');
+      if (sortByTime) {
+        filtered.sort((a, b) => {
+          const da = parseYear(a.year);
+          const db = parseYear(b.year);
+          return reverseBtn.classList.contains('active') ? da - db : db - da;
+        });
+      } else if (reverseBtn.classList.contains('active')) {
+        filtered.reverse();
+      }
+      waterfall.innerHTML = '';
+      currentModalImages = filtered.filter(isModalType);
+      filtered.forEach((image, index) => {
+        const card = document.createElement("div");
+        card.className = "image-card";
+        if (image.category === "Text") {
+          card.classList.add("text");
         }
-      }
-      thumbnail.appendChild(mediaElement);
+        const thumbnail = document.createElement("div");
+        thumbnail.className = "thumbnail";
+        let mediaElement;
+        if (image.category !== "Text" && image.url) {
+          if (image.category === "Website") {
+            mediaElement = document.createElement("iframe");
+            mediaElement.src = image.url;
+            mediaElement.style.width = "100%";
+            mediaElement.style.aspectRatio = "1/1";
+            mediaElement.frameBorder = "0";
+            mediaElement.loading = "lazy";
+          } else {
+            mediaElement = document.createElement("img");
+            mediaElement.src = image.url;
+            mediaElement.alt = image.title;
+            mediaElement.loading = "lazy";
+            if (image.category === "Music") {
+              mediaElement.style.aspectRatio = "1/1";
+              mediaElement.style.objectFit = "cover";
+            }
+          }
+          thumbnail.appendChild(mediaElement);
+        }
+        card.appendChild(thumbnail);
+        const info = document.createElement("div");
+        info.className = "image-info";
+        const titleYear = document.createElement("div");
+        titleYear.className = "image-title-year";
+        const titleEl = document.createElement("div");
+        titleEl.className = "image-title";
+        titleEl.textContent = image.title || "Untitled";
+        titleYear.appendChild(titleEl);
+        const yearEl = document.createElement("div");
+        yearEl.className = "image-year";
+        yearEl.textContent = image.year;
+        titleYear.appendChild(yearEl);
+        info.appendChild(titleYear);
+        const description = document.createElement("div");
+        description.className = "image-description";
+        description.innerHTML = image.description;
+        info.appendChild(description);
+        const categoryEl = document.createElement("div");
+        categoryEl.className = "image-category";
+        categoryEl.textContent = image.category;
+        info.appendChild(categoryEl);
+        card.appendChild(info);
+        card.addEventListener("click", () => {
+          if (image.category === 'Music' && image.link && image.link !== 'none') {
+            window.open(image.link, "_blank");
+          } else if (isModalType(image)) {
+            const modalIndex = currentModalImages.findIndex(m => m === image);
+            openModal(image, modalIndex);
+          } else if (image.link && image.link !== "none") {
+            window.open(image.link, "_blank");
+          }
+        });
+        waterfall.appendChild(card);
+      });
     }
-    card.appendChild(thumbnail);
 
-    const info = document.createElement("div");
-    info.className = "image-info";
+    function openModal(image, modalIndex) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = image.url;
+      document.body.style.overflow = "hidden";
+      currentImageIndex = modalIndex;
+    }
 
-    const titleYear = document.createElement("div");
-    titleYear.className = "image-title-year";
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
 
-    const titleEl = document.createElement("div");
-    titleEl.className = "image-title";
-    titleEl.textContent = image.title || "Untitled";
-    titleYear.appendChild(titleEl);
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentModalImages.length) % currentModalImages.length;
+      openModal(currentModalImages[currentImageIndex], currentImageIndex);
+    }
 
-    const yearEl = document.createElement("div");
-    yearEl.className = "image-year";
-    yearEl.textContent = image.year;
-    titleYear.appendChild(yearEl);
-
-    info.appendChild(titleYear);
-
-    const description = document.createElement("div");
-    description.className = "image-description";
-    description.innerHTML = image.description;
-    info.appendChild(description);
-
-    const categoryEl = document.createElement("div");
-    categoryEl.className = "image-category";
-    categoryEl.textContent = image.category;
-    info.appendChild(categoryEl);
-
-    card.appendChild(info);
-
-    card.addEventListener("click", () => {
-      if (image.category === 'Music' && image.link && image.link !== 'none') {
-        window.open(image.link, "_blank");
-      } else if (isModalType(image)) {
-        const modalIndex = currentModalImages.findIndex(m => m === image);
-        openModal(image, modalIndex);
-      } else if (image.link && image.link !== "none") {
-        window.open(image.link, "_blank");
-      }
-    });
-
-    waterfall.appendChild(card);
-  });
-}
-
-function openModal(image, modalIndex) {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImage");
-  modal.style.display = "block";
-  modalImg.src = image.url;
-  document.body.style.overflow = "hidden";
-  currentImageIndex = modalIndex;
-}
-
-function closeModal() {
-  const modal = document.getElementById("imageModal");
-  modal.style.display = "none";
-  document.body.style.overflow = "auto";
-}
-
-function showPrevImage() {
-  currentImageIndex = (currentImageIndex - 1 + currentModalImages.length) % currentModalImages.length;
-  openModal(currentModalImages[currentImageIndex], currentImageIndex);
-}
-
-function showNextImage() {
-  currentImageIndex = (currentImageIndex + 1) % currentModalImages.length;
-  openModal(currentModalImages[currentImageIndex], currentImageIndex);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  refreshWaterfall();
-
-  const categoryButtons = document.querySelectorAll('.fil-l button');
-  categoryButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      categoryButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentCategory = btn.textContent;
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentModalImages.length;
+      openModal(currentModalImages[currentImageIndex], currentImageIndex);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
       refreshWaterfall();
+      const categoryButtons = document.querySelectorAll('.fil-l button');
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.textContent;
+          refreshWaterfall();
+        });
+      });
+      const listBtn = document.querySelector('.fil-r button:nth-child(1)');
+      const gridBtn = document.querySelector('.fil-r button:nth-child(2)');
+      const clockBtn = document.querySelector('.fil-r button:nth-child(3)');
+      const reverseBtn = document.querySelector('.fil-r button:nth-child(4)');
+      listBtn.addEventListener('click', () => {
+        waterfall.classList.add('list-mode');
+        listBtn.style.display = 'none';
+        gridBtn.style.display = 'block';
+      });
+      gridBtn.addEventListener('click', () => {
+        waterfall.classList.remove('list-mode');
+        gridBtn.style.display = 'none';
+        listBtn.style.display = 'block';
+      });
+      clockBtn.addEventListener('click', () => {
+        clockBtn.classList.toggle('active');
+        refreshWaterfall();
+      });
+      reverseBtn.addEventListener('click', () => {
+        reverseBtn.classList.toggle('active');
+        refreshWaterfall();
+      });
+      document.querySelector(".close").addEventListener("click", closeModal);
+      document.querySelector(".prev-button").addEventListener("click", showPrevImage);
+      document.querySelector(".next-button").addEventListener("click", showNextImage);
+      document.getElementById("imageModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) {
+          closeModal();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+        } else if (e.key === "ArrowLeft") {
+          showPrevImage();
+        } else if (e.key === "ArrowRight") {
+          showNextImage();
+        }
+      });
     });
-  });
-
-  const listBtn = document.querySelector('.fil-r button:nth-child(1)');
-  const gridBtn = document.querySelector('.fil-r button:nth-child(2)');
-  const clockBtn = document.querySelector('.fil-r button:nth-child(3)');
-  const reverseBtn = document.querySelector('.fil-r button:nth-child(4)');
-
-  listBtn.addEventListener('click', () => {
-    waterfall.classList.add('list-mode');
-    listBtn.style.display = 'none';
-    gridBtn.style.display = 'block';
-  });
-
-  gridBtn.addEventListener('click', () => {
-    waterfall.classList.remove('list-mode');
-    gridBtn.style.display = 'none';
-    listBtn.style.display = 'block';
-  });
-
-  clockBtn.addEventListener('click', () => {
-    clockBtn.classList.toggle('active');
-    refreshWaterfall();
-  });
-
-  reverseBtn.addEventListener('click', () => {
-    reverseBtn.classList.toggle('active');
-    refreshWaterfall();
-  });
-
-  document.querySelector(".close").addEventListener("click", closeModal);
-  document.querySelector(".prev-button").addEventListener("click", showPrevImage);
-  document.querySelector(".next-button").addEventListener("click", showNextImage);
-  document.getElementById("imageModal").addEventListener("click", (e) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeModal();
-    } else if (e.key === "ArrowLeft") {
-      showPrevImage();
-    } else if (e.key === "ArrowRight") {
-      showNextImage();
-    }
-  });
-});
   </script>
 </body>
+
 </html>
