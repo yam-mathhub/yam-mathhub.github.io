@@ -6,401 +6,486 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Works and Projects</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  padding: 60px 40px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-  background-color: #eee;
-  color: #fff;
-  font-size: 18px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.filter {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 20px 0 5px;
-  margin: 0;
-  background-color: #eee;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.fil-l {
-  white-space: nowrap;
-  overflow: auto;
-}
-.fil-l::-webkit-scrollbar {
-  display: none;
-}
-.fil-l {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-.fil-r {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.filter button {
-  color: #000;
-  background-color: transparent;
-  border: none;
-  font-size: 14px;
-  padding: 2px 8px 0;
-  margin: 0 2px 0;
-  cursor: pointer;
-}
-.fil-r button {
-  font-size: 16px;
-  font-weight: bold;
-  width: 16px;
-  padding: 2px 10px 2px;
-  margin: 2px 4px 0;
-  text-align: center;
-  color: #444;
-}
-.fil-r button:last-child {
-  font-size: 18.5px;
-}
-@media (max-width: 500px) {
-  .filter button {
-    padding: 2px 4px 0;
-    margin: 0 2px 0;
-  }
+    body {
+      margin: 0;
+      padding: 60px 40px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #eee;
+      color: #fff;
+      font-size: 18px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-  .fil-r button {
-    padding: 2px 10px 2px;
-    margin: 2px 4px 0;
-  }
-}
+    .filter {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 20px 0 5px;
+      margin: 0;
+      background-color: #eee;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.filter button.active {
-  border-bottom: 2px solid #000;
-}
-.fil-r button.active {
-  border-bottom: none;
-  color: #007bff;
-}
-.waterfall {
-  position: relative;
-  z-index: 10;
-  column-count: 5;
-  column-gap: 20px;
-  margin: 0;
-}
-.waterfall.list-mode {
-  column-count: 1;
-  column-gap: 0;
-  display: block;
-}
+    .fil-l {
+      white-space: nowrap;
+      overflow: auto;
+    }
 
-@media (max-width: 1200px) {
-  .waterfall {
-    column-count: 4;
-  }
-}
-@media (max-width: 900px) {
-  .waterfall {
-    column-count: 3;
-  }
-}
-@media (max-width: 600px) {
-  .waterfall {
-    column-count: 2;
-  }
+    .fil-l::-webkit-scrollbar {
+      display: none;
+    }
 
-  body {
-    padding: 40px 20px;
-  }
-}
-@media (max-width: 200px) {
-  .waterfall {
-    column-count: 1;
-  }
-}
+    .fil-l {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-.image-card {
-  break-inside: avoid;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  margin: 0 0 20px;
-}
-.image-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-}
-.thumbnail iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: none;
-}
-.image-info {
-  padding: 2px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-top: 1px solid #f0f0f0;
-}
-.image-card.text .image-info {
-  border-top: none;
-}
-.image-title-year {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.image-title {
-  font-size: 14px;
-  font-weight: 400;
-  color: #000;
-}
-.image-year {
-  font-size: 12px;
-  margin: 3.5px 0 0;
-  color: #555;
-}
-.image-category {
-  display: none;
-  font-size: 12px;
-  color: #555;
-}
-.image-description {
-  font-size: 12px;
-  margin-top: 5px;
-  color: #555;
-  white-space: pre-wrap;
-}
+    .fil-r {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
 
-.waterfall.list-mode .image-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #f0f0f0;
-}
-.waterfall.list-mode .thumbnail {
-  min-width: 60px;
-  height: 60px;
-}
-.waterfall.list-mode .thumbnail img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-}
-.waterfall.list-mode .thumbnail iframe {
-  width: 96px;
-  height: 54px;
-}
-.waterfall.list-mode .image-info {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  border-top: none;
-}
-.waterfall.list-mode .image-title-year {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  /* 改成垂直排列：標題在上，年份在下 */
-  justify-content: flex-start;
-  gap: 2px;
-}
-.waterfall.list-mode .image-description {
-  flex: 3;
-  margin-top: 0;
-  max-width: 40ch;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.waterfall.list-mode .image-category {
-  display: block;
-  flex: 1;
-}
-@media (max-width: 600px) {
-  .waterfall.list-mode .thumbnail {
-    min-width: 40px;
-    height: 40px;
-  }
+    .filter button {
+      color: #000;
+      background-color: transparent;
+      border: none;
+      font-size: 14px;
+      padding: 2px 8px 0;
+      margin: 0 2px 0;
+      cursor: pointer;
+    }
 
-  .waterfall.list-mode .thumbnail img {
-    width: 40px;
-    height: 40px;
-  }
+    .fil-r button {
+      font-size: 16px;
+      font-weight: bold;
+      width: 16px;
+      padding: 2px 10px 2px;
+      margin: 2px 4px 0;
+      text-align: center;
+      color: #444;
+    }
 
-  .waterfall.list-mode .thumbnail iframe {
-    width: 71px;
-    height: 40px;
-  }
+    .fil-r button:last-child {
+      font-size: 18.5px;
+    }
 
-  .waterfall.list-mode .image-info {
-    gap: 10px;
-  }
+    @media (max-width: 500px) {
+      .filter button {
+        padding: 2px 4px 0;
+        margin: 0 2px 0;
+      }
 
-  .waterfall.list-mode .image-title-year {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    /* 手機下也垂直排列 */
-    gap: 2px;
-  }
+      .fil-r button {
+        padding: 2px 10px 2px;
+        margin: 2px 4px 0;
+      }
+    }
 
-  .waterfall.list-mode .image-description {
-    display: none;
-    /* 手機尺寸列表模式下隱藏描述 */
-  }
+    .filter button.active {
+      border-bottom: 2px solid #000;
+    }
 
-  .waterfall.list-mode .image-category {
-    flex: 2;
-    order: 3;
-  }
+    .fil-r button.active {
+      border-bottom: none;
+      color: #007bff;
+    }
 
-  .waterfall.list-mode .image-title {
-    font-size: 12px;
-  }
+    #btn-clock,
+    #btn-reverse {
+      display: none;
+    }
 
-  .waterfall.list-mode .image-year {
-    font-size: 10px;
-  }
+    .waterfall {
+      position: relative;
+      z-index: 10;
+      column-count: 5;
+      column-gap: 20px;
+      margin: 0;
+    }
 
-  .waterfall.list-mode .image-category {
-    font-size: 10px;
-  }
-}
+    .waterfall.list-mode {
+      column-count: 1;
+      column-gap: 0;
+      display: block;
+    }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #eee;
-  animation: fadeIn 0.3s ease;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+    @media (max-width: 1200px) {
+      .waterfall {
+        column-count: 4;
+      }
+    }
 
-  to {
-    opacity: 1;
-  }
-}
-.modal-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
-.modal-content {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  animation: zoomIn 0.3s ease;
-}
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
+    @media (max-width: 900px) {
+      .waterfall {
+        column-count: 3;
+      }
+    }
 
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.modal-content img {
-  width: 100%;
-  height: 100vh;
-  display: block;
-  object-fit: contain;
-}
+    @media (max-width: 600px) {
+      .waterfall {
+        column-count: 2;
+      }
 
-.nav-button {
-  position: fixed;
-  z-index: 1001;
-  top: calc(50%);
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0);
-  color: #fff;
-  border: none;
-  width: 45px;
-  height: 45px;
-  font-size: 24px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-button:hover {
-  background: rgba(155, 155, 155, 0.2);
-  transform: translateY(-50%) scale(1.1);
-}
-.prev-button {
-  left: 20px;
-}
-.next-button {
-  right: 20px;
-}
-@media (max-width: 400px) {
-  .prev-button {
-    left: 5px;
-  }
+      body {
+        padding: 40px 20px;
+      }
+    }
 
-  .next-button {
-    right: 5px;
-  }
-}
-.close {
-  position: fixed;
-  top: 20px;
-  right: 40px;
-  color: #666;
-  opacity: 0.5;
-  font-size: 40px;
-  font-weight: 300;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  z-index: 1001;
-}
-.close:hover {
-  color: #bbb;
-}
+    @media (max-width: 200px) {
+      .waterfall {
+        column-count: 1;
+      }
+    }
 
+    .image-card {
+      break-inside: avoid;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      margin: 0 0 20px;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .thumbnail iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+
+    .image-info {
+      padding: 2px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .image-card.text .image-info {
+      border-top: none;
+    }
+
+    .image-title-year {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .image-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: #000;
+    }
+
+    .image-year {
+      font-size: 12px;
+      margin: 3.5px 0 0;
+      color: #555;
+    }
+
+    .image-category {
+      display: none;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .image-description {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #555;
+      white-space: pre-wrap;
+    }
+
+    .waterfall.list-mode .image-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .waterfall.list-mode .thumbnail {
+      min-width: 60px;
+      height: 60px;
+    }
+
+    .waterfall.list-mode .thumbnail img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    .waterfall.list-mode .thumbnail iframe {
+      width: 96px;
+      height: 54px;
+    }
+
+    .waterfall.list-mode .image-info {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      border-top: none;
+    }
+
+    .waterfall.list-mode .image-title-year {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 2px;
+    }
+
+    .waterfall.list-mode .image-description {
+      flex: 3;
+      margin-top: 0;
+      max-width: 40ch;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .waterfall.list-mode .image-category {
+      display: block;
+      flex: 1;
+    }
+
+    @media (max-width: 600px) {
+      .waterfall.list-mode .thumbnail {
+        min-width: 40px;
+        height: 40px;
+      }
+
+      .waterfall.list-mode .thumbnail img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .waterfall.list-mode .thumbnail iframe {
+        width: 71px;
+        height: 40px;
+      }
+
+      .waterfall.list-mode .image-info {
+        gap: 10px;
+      }
+
+      .waterfall.list-mode .image-title-year {
+        flex: 3;
+        display: flex;
+        gap: 2px;
+      }
+
+      .waterfall.list-mode .image-description {
+        display: none;
+      }
+
+      .waterfall.list-mode .image-category {
+        flex: 2;
+        order: 3;
+      }
+
+      .waterfall.list-mode .image-title {
+        font-size: 12px;
+      }
+
+      .waterfall.list-mode .image-year {
+        font-size: 10px;
+      }
+
+      .waterfall.list-mode .image-category {
+        font-size: 10px;
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #eee;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal-content {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      /* For absolute positioning of slides */
+      overflow: hidden;
+      /* Hide slides outside view */
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Slide Animation Styles */
+    .modal-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #eee;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      /* Smooth easing */
+      will-change: transform;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .modal-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      pointer-events: none;
+      /* Let touches pass to container for swipe */
+    }
+
+    /* Button Styles */
+    .nav-button {
+      position: fixed;
+      z-index: 1001;
+      top: calc(50%);
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.25);
+      color: #000;
+      border: none;
+      width: 45px;
+      height: 45px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      line-height: 1;
+    }
+
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-button {
+      left: 20px;
+    }
+
+    .next-button {
+      right: 20px;
+    }
+
+    @media (max-width: 400px) {
+      .prev-button {
+        left: 5px;
+      }
+
+      .next-button {
+        right: 5px;
+      }
+    }
+
+    /* Hide nav buttons on mobile/tablet as requested previously, user will swipe */
+    @media (max-width: 900px) {
+      .nav-button {
+        display: none !important;
+      }
+    }
+
+    .close {
+      position: fixed;
+      top: 20px;
+      right: 40px;
+      color: #000;
+      background: rgba(255, 255, 255, 0.25);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 300;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+      z-index: 1001;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      line-height: 1;
+    }
+
+    .close:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
   </style>
 </head>
 
@@ -409,34 +494,35 @@ body {
   <p style="color:#666; padding:0 4px; margin:5px 0 0; font-size:14px;">Maybe in here, you can get to know me a little better.</p>
   <div class="filter">
     <div class="fil-l">
-      <button id="fil-all" class="active">All</button>
-      <button>Text</button>
-      <button>Drawing & Painter</button>
-      <button>Collage</button>
-      <button>Music</button>
-      <button>Website</button>
-      <button>3D Modeling</button>
-      <button>Other</button>
+      <button id="fil-all" data-category="All" class="active">All</button>
+      <button id="fil-text" data-category="Text">Text</button>
+      <button id="fil-drawing-painter" data-category="Drawing & Painter">Drawing & Painter</button>
+      <button id="fil-collage" data-category="Collage">Collage</button>
+      <button id="fil-music" data-category="Music">Music</button>
+      <button id="fil-website" data-category="Website">Website</button>
+      <button id="fil-3d-modeling" data-category="3D Modeling">3D Modeling</button>
+      <button id="fil-other" data-category="Other">Other</button>
     </div>
     <div class="fil-r">
-      <button><i class="fa-solid fa-list"></i></button>
-      <button style="display:none;"><i class="fa-solid fa-table-cells-large"></i></button>
-      <button><i class="fa-regular fa-clock"></i></button>
-      <button>&#8693;</button>
+      <button id="btn-list"><i class="fa-solid fa-list"></i></button>
+      <button id="btn-grid" style="display:none;"><i class="fa-solid fa-table-cells-large"></i></button>
+      <button id="btn-clock"><i class="fa-regular fa-clock"></i></button>
+      <button id="btn-reverse">&#8693;</button>
     </div>
   </div>
-  <div class="waterfall" id="waterfall">
-  </div>
+  <div class="waterfall" id="waterfall"></div>
+
   <div id="imageModal" class="modal">
     <span class="close">&times;</span>
     <button class="nav-button prev-button">‹</button>
     <button class="nav-button next-button">›</button>
     <div class="modal-container">
-      <div class="modal-content">
-        <img id="modalImage" src="" alt="">
+      <div class="modal-content" id="modalContent">
+        <!-- Slides will be injected here -->
       </div>
     </div>
   </div>
+
   <script>
     const images = [{
         url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/mess.png",
@@ -566,7 +652,7 @@ body {
         category: "Drawing & Painter",
         link: ""
       },
-                    {
+      {
         category: "Collage",
         url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/me.png",
         title: "",
@@ -742,7 +828,7 @@ body {
         category: "Drawing & Painter",
         link: ""
       },
-                    {
+      {
         category: "Music",
         title: "螞蟻和糖果",
         url: "https://i1.sndcdn.com/artworks-NhszMgCLLyXJHuYx-zHC9PQ-original.png",
@@ -829,14 +915,6 @@ body {
         year: "2025",
         description: "盡情地觸碰 但請珍重<br>笨拙地想要學懂<br>攀登 這唇峰……",
         link: "none"
-      },
-      {
-        category: "Other",
-        url: "https://example.com/image.jpg",
-        title: "Other example",
-        year: "2024",
-        description: "",
-        link: "https://example.com"
       }
     ];
     let currentCategory = 'All';
@@ -844,6 +922,11 @@ body {
     let currentImageIndex = -1;
     let currentModalImages = [];
     const waterfall = document.getElementById("waterfall");
+    const listBtn = document.getElementById('btn-list');
+    const gridBtn = document.getElementById('btn-grid');
+    const clockBtn = document.getElementById('btn-clock');
+    const reverseBtn = document.getElementById('btn-reverse');
+    const modalContent = document.getElementById('modalContent');
 
     function parseYear(year) {
       if (typeof year !== 'string') return 0;
@@ -859,10 +942,18 @@ body {
       return ['Drawing & Painter', 'Collage', '3D Modeling'].includes(image.category) || (image.category === 'Music' && (!image.link || image.link === 'none'));
     }
 
+    function updateViewModeButtons(isListMode) {
+      if (isListMode) {
+        clockBtn.style.display = 'block';
+        reverseBtn.style.display = 'block';
+      } else {
+        clockBtn.style.display = 'none';
+        reverseBtn.style.display = 'none';
+      }
+    }
+
     function refreshWaterfall() {
       let filtered = images.filter(image => currentCategory === 'All' || image.category === currentCategory);
-      const reverseBtn = document.querySelector('.fil-r button:nth-child(4)');
-      const clockBtn = document.querySelector('.fil-r button:nth-child(3)');
       sortByTime = clockBtn.classList.contains('active');
       if (sortByTime) {
         filtered.sort((a, b) => {
@@ -885,7 +976,6 @@ body {
         thumbnail.className = "thumbnail";
         let mediaElement;
         if (image.url) {
-          /* 統一用 img，無論類別（Website 和 Music 也用 img，如果有 url） */
           mediaElement = document.createElement("img");
           mediaElement.src = image.url;
           mediaElement.alt = image.title;
@@ -932,32 +1022,103 @@ body {
         waterfall.appendChild(card);
       });
     }
+    // --- Modal Logic ---
+    function preloadImage(url) {
+      if (!url) return;
+      const img = new Image();
+      img.src = url;
+    }
+
+    function preloadNeighbors(index) {
+      const len = currentModalImages.length;
+      if (len === 0) return;
+      const prevIndex = (index - 1 + len) % len;
+      const nextIndex = (index + 1) % len;
+      preloadImage(currentModalImages[prevIndex].url);
+      preloadImage(currentModalImages[nextIndex].url);
+    }
+
+    function createSlide(imageUrl, position) {
+      const slide = document.createElement('div');
+      slide.className = 'modal-slide';
+      // Set initial position based on where it's coming from
+      if (position === 'left') slide.style.transform = 'translateX(-100%)';
+      else if (position === 'right') slide.style.transform = 'translateX(100%)';
+      else slide.style.transform = 'translateX(0)';
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      slide.appendChild(img);
+      return slide;
+    }
 
     function openModal(image, modalIndex) {
       const modal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImage");
       modal.style.display = "block";
-      modalImg.src = image.url;
       document.body.style.overflow = "hidden";
       currentImageIndex = modalIndex;
+      // Clear old content
+      modalContent.innerHTML = '';
+      // Create current slide
+      const slide = createSlide(image.url, 'center');
+      modalContent.appendChild(slide);
+      // Preload neighbors
+      preloadNeighbors(modalIndex);
     }
 
     function closeModal() {
       const modal = document.getElementById("imageModal");
       modal.style.display = "none";
       document.body.style.overflow = "auto";
+      // Clean up slides
+      modalContent.innerHTML = '';
     }
 
-    function showPrevImage() {
-      currentImageIndex = (currentImageIndex - 1 + currentModalImages.length) % currentModalImages.length;
-      openModal(currentModalImages[currentImageIndex], currentImageIndex);
+    function switchImage(direction) {
+      const len = currentModalImages.length;
+      if (len <= 1) return;
+      const oldSlide = modalContent.querySelector('.modal-slide');
+      if (!oldSlide) return;
+      // Determine indices
+      const prevIndex = (currentImageIndex - 1 + len) % len;
+      const nextIndex = (currentImageIndex + 1) % len;
+      let newIndex;
+      let entryPosition;
+      let exitDirection;
+      if (direction === 'next') {
+        newIndex = nextIndex;
+        entryPosition = 'right';
+        exitDirection = 'left';
+      } else {
+        newIndex = prevIndex;
+        entryPosition = 'left';
+        exitDirection = 'right';
+      }
+      currentImageIndex = newIndex;
+      const newImage = currentModalImages[newIndex];
+      // Create new slide off-screen
+      const newSlide = createSlide(newImage.url, entryPosition);
+      modalContent.appendChild(newSlide);
+      // Force reflow to ensure transition works
+      newSlide.offsetHeight;
+      // Animate
+      // Move old slide out
+      oldSlide.style.transform = `translateX(${exitDirection === 'left' ? '-100%' : '100%'})`;
+      // Move new slide in
+      newSlide.style.transform = 'translateX(0)';
+      // Remove old slide after transition
+      oldSlide.addEventListener('transitionend', () => {
+        if (oldSlide.parentNode) oldSlide.parentNode.removeChild(oldSlide);
+      }, {
+        once: true
+      });
+      // Preload new neighbors
+      preloadNeighbors(newIndex);
     }
-
-    function showNextImage() {
-      currentImageIndex = (currentImageIndex + 1) % currentModalImages.length;
-      openModal(currentModalImages[currentImageIndex], currentImageIndex);
-    }
+    // Event Listeners
     document.addEventListener("DOMContentLoaded", () => {
+      // Initial Hash Check
+      handleHashChange();
+      window.addEventListener('hashchange', handleHashChange);
       refreshWaterfall();
       const categoryButtons = document.querySelectorAll('.fil-l button');
       categoryButtons.forEach(btn => {
@@ -965,22 +1126,21 @@ body {
           categoryButtons.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           currentCategory = btn.textContent;
+          updateHash(currentCategory);
           refreshWaterfall();
         });
       });
-      const listBtn = document.querySelector('.fil-r button:nth-child(1)');
-      const gridBtn = document.querySelector('.fil-r button:nth-child(2)');
-      const clockBtn = document.querySelector('.fil-r button:nth-child(3)');
-      const reverseBtn = document.querySelector('.fil-r button:nth-child(4)');
       listBtn.addEventListener('click', () => {
         waterfall.classList.add('list-mode');
         listBtn.style.display = 'none';
         gridBtn.style.display = 'block';
+        updateViewModeButtons(true);
       });
       gridBtn.addEventListener('click', () => {
         waterfall.classList.remove('list-mode');
         gridBtn.style.display = 'none';
         listBtn.style.display = 'block';
+        updateViewModeButtons(false);
       });
       clockBtn.addEventListener('click', () => {
         clockBtn.classList.toggle('active');
@@ -991,23 +1151,73 @@ body {
         refreshWaterfall();
       });
       document.querySelector(".close").addEventListener("click", closeModal);
-      document.querySelector(".prev-button").addEventListener("click", showPrevImage);
-      document.querySelector(".next-button").addEventListener("click", showNextImage);
-      document.getElementById("imageModal").addEventListener("click", (e) => {
-        if (e.target === e.currentTarget) {
+      document.querySelector(".prev-button").addEventListener("click", () => switchImage('prev'));
+      document.querySelector(".next-button").addEventListener("click", () => switchImage('next'));
+      const modal = document.getElementById("imageModal");
+      modal.addEventListener("click", (e) => {
+        if (e.target === e.currentTarget || e.target.classList.contains('modal-container') || e.target.classList.contains('modal-content')) {
           closeModal();
         }
       });
+      // Touch Swipe for Modal
+      let modalTouchStartX = 0;
+      modal.addEventListener('touchstart', e => {
+        modalTouchStartX = e.changedTouches[0].screenX;
+      }, {
+        passive: true
+      });
+      modal.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = modalTouchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) switchImage('next');
+          else switchImage('prev');
+        }
+      }, {
+        passive: true
+      });
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeModal();
-        } else if (e.key === "ArrowLeft") {
-          showPrevImage();
-        } else if (e.key === "ArrowRight") {
-          showNextImage();
+        if (document.getElementById('imageModal').style.display === 'block') {
+          if (e.key === "Escape") closeModal();
+          else if (e.key === "ArrowLeft") switchImage('prev');
+          else if (e.key === "ArrowRight") switchImage('next');
         }
       });
     });
+    // URL Hash Logic
+    function handleHashChange() {
+      let hash = window.location.hash.substring(1);
+      let targetCategory = "All";
+      const categoryMap = {
+        "all": "All",
+        "text": "Text",
+        "drawing-painter": "Drawing & Painter",
+        "collage": "Collage",
+        "music": "Music",
+        "website": "Website",
+        "3d-modeling": "3D Modeling",
+        "other": "Other"
+      };
+      if (categoryMap[hash]) targetCategory = categoryMap[hash];
+      const buttons = document.querySelectorAll('.fil-l button');
+      buttons.forEach(btn => {
+        if (btn.textContent === targetCategory && !btn.classList.contains('active')) btn.click();
+      });
+    }
+
+    function updateHash(category) {
+      const hashMap = {
+        "All": "all",
+        "Text": "text",
+        "Drawing & Painter": "drawing-painter",
+        "Collage": "collage",
+        "Music": "music",
+        "Website": "website",
+        "3D Modeling": "3d-modeling",
+        "Other": "other"
+      };
+      if (hashMap[category]) window.location.hash = hashMap[category];
+    }
   </script>
 </body>
 
