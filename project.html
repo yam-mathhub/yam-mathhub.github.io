@@ -482,6 +482,9 @@
       -webkit-backdrop-filter: blur(10px);
       line-height: 1;
     }
+    .close span{
+      padding: 0 0 4px;
+    }
 
     .close:hover {
       background: rgba(255, 255, 255, 0.6);
@@ -513,7 +516,7 @@
   <div class="waterfall" id="waterfall"></div>
 
   <div id="imageModal" class="modal">
-    <span class="close">&times;</span>
+    <span class="close"><span>&times;</span></span>
     <button class="nav-button prev-button">‹</button>
     <button class="nav-button next-button">›</button>
     <div class="modal-container">
@@ -597,14 +600,6 @@
         link: ""
       },
       {
-        category: "Collage",
-        url: "https://i.pinimg.com/474x/0a/9c/2c/0a9c2cb88005f2f6ce06cba40e2fcf89.jpg",
-        title: "",
-        year: "2026",
-        description: '<a href="https://www.pinterest.com/pin/861806078797925129/" target="_blank">View on Pinterest</a>',
-        link: ""
-      },
-      {
         category: "Text",
         title: "海洋搖籃曲",
         url: "",
@@ -642,6 +637,14 @@
         year: "2025",
         description: "",
         category: "Drawing & Painter",
+        link: ""
+      },
+      {
+        category: "Music",
+        title: "唇峰",
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/lip-blue.png",
+        year: "2025",
+        description: "盡情地觸碰 但請珍重<br>笨拙地想要學懂<br>攀登 這唇峰……",
         link: ""
       },
       {
@@ -693,14 +696,6 @@
         link: ""
       },
       {
-        category: "Collage",
-        url: "https://i.pinimg.com/474x/83/47/ba/8347ba415b0fde1e1f556a9a6daeac1b.jpg",
-        title: "",
-        year: "2026",
-        description: '<a href="https://www.pinterest.com/pin/861806078797866455/" target="_blank">View on Pinterest</a>',
-        link: ""
-      },
-      {
         url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/inside.png",
         title: "",
         year: "2025",
@@ -728,7 +723,7 @@
         category: "Text",
         title: "陽光雨",
         year: "2025",
-        description: "這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。路常常在變，遇上熟悉的事物，總會令人生出一絲安心來，即使那是微乎其微的。<br><br>這裏沒有風，雨水狀的掛飾不會無故地動。抬起手臂輕掃著掛飾，它們發出如風鈴般清脆的聲音。高掛的太陽燈有一圈紅色的光暈，就如真的太陽一樣熾熱……太陽？天空？<br><br>思考沒有答案的問題只會為自己徒增煩惱。清席地而坐，坐累了，便躺下。聽著通風口低沉的嗡鳴聲，伴隨著掛飾晃動的叮叮聲，很快便入睡了。<br><br>會夢見甚麼呢？",
+        description: "這裏有一小塊奇怪的空間，嵌入在走廊牆壁之中，像是一個奇怪的展廳。偶爾遇上展廳，都會停下來，或長或短，誰也説不清。路常常在變，遇上熟悉的事物，總會令人生出一絲安心來，即使那是微乎其微的。<br><br>這裏沒有風，雨水狀的掛飾不會無故地動。抬起手臂輕掃著掛飾，它們發出如風鈴般清脆的聲音。高掛的太陽燈有一圈紅色的光暈，就如真的太陽一樣熾熱……太陽？天空？<br><br>思考沒有答案的問題只會為自己徒增煩惱。席地而坐，坐累了，便躺下。聽著通風口低沉的嗡鳴聲，伴隨著掛飾晃動的叮叮聲，很快便入睡了。<br><br>會夢見甚麼呢？",
         link: "https://yam-mathhub.github.io/project/text/sunshine-rain.html",
         url: ""
       },
@@ -907,14 +902,6 @@
         year: "2026",
         description: '<a href="https://www.pinterest.com/pin/861806078797940490/" target="_blank">View on Pinterest</a>',
         link: ""
-      },
-      {
-        category: "Music",
-        title: "唇峰",
-        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/lip.jpg",
-        year: "2025",
-        description: "盡情地觸碰 但請珍重<br>笨拙地想要學懂<br>攀登 這唇峰……",
-        link: "none"
       }
     ];
     let currentCategory = 'All';
