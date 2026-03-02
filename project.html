@@ -111,6 +111,7 @@
     #btn-clock {
       display: none;
     }
+
     /* Default: Show Reverse button */
     #btn-reverse {
       display: block;
@@ -343,8 +344,13 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .modal-container {
@@ -368,8 +374,15 @@
     }
 
     @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .modal-slide {
@@ -422,16 +435,28 @@
       transform: translateY(-50%) scale(1.1);
     }
 
-    .prev-button { left: 20px; }
-    .next-button { right: 20px; }
+    .prev-button {
+      left: 20px;
+    }
+
+    .next-button {
+      right: 20px;
+    }
 
     @media (max-width: 400px) {
-      .prev-button { left: 5px; }
-      .next-button { right: 5px; }
+      .prev-button {
+        left: 5px;
+      }
+
+      .next-button {
+        right: 5px;
+      }
     }
 
     @media (max-width: 900px) {
-      .nav-button { display: none !important; }
+      .nav-button {
+        display: none !important;
+      }
     }
 
     .close {
@@ -456,8 +481,13 @@
       line-height: 1;
     }
 
-    .close span { padding: 0 0 4px; }
-    .close:hover { background: rgba(255, 255, 255, 0.6); }
+    .close span {
+      padding: 0 0 4px;
+    }
+
+    .close:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
   </style>
 </head>
 
@@ -585,6 +615,14 @@
         link: ""
       },
       {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/flower-and-sea.PNG",
+        title: "",
+        year: "2026.02",
+        description: "",
+        category: "Drawing & Painter",
+        link: ""
+      },
+      {
         url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/blue-star.png",
         title: "中耳炎下的平靜",
         year: "2025",
@@ -606,6 +644,14 @@
         title: "",
         year: "2026",
         description: '五顏六色的膠布，<br>會令傷口沒這麼痛嗎？<br><br>不會，<br><br>但我選擇用新的記憶，<br>覆蓋痛的回憶。<br><br><a href="https://www.pinterest.com/pin/861806078798021403/" target="_blank">View on Pinterest</a>',
+        link: ""
+      },
+      {
+        url: "https://cdn.jsdelivr.net/gh/yam-mathhub/yam-mathhub@main/media/image/balloon.PNG",
+        title: "飄",
+        year: "2026.03",
+        description: "",
+        category: "Drawing & Painter",
         link: ""
       },
       {
@@ -937,9 +983,9 @@
     function isValidImage(image) {
       return image.url && image.url.trim() !== '';
     }
-    
+
     function hasValidLink(image) {
-       return image.link && image.link.trim() !== '' && image.link !== 'none';
+      return image.link && image.link.trim() !== '' && image.link !== 'none';
     }
 
     function updateViewModeButtons(isListMode) {
@@ -967,10 +1013,8 @@
         filtered.reverse();
       }
       waterfall.innerHTML = '';
-      
       // Filter for Modal: Has Image AND NO valid external link (Images are for viewing, Links are for clicking)
       currentModalImages = filtered.filter(image => isValidImage(image) && !hasValidLink(image));
-      
       filtered.forEach((image, index) => {
         const card = document.createElement("div");
         card.className = "image-card";
@@ -1014,7 +1058,6 @@
         categoryEl.textContent = image.category;
         info.appendChild(categoryEl);
         card.appendChild(info);
-        
         card.addEventListener("click", () => {
           // Priority: Link > Image Modal
           if (hasValidLink(image)) {
@@ -1078,14 +1121,11 @@
       if (len <= 1) return;
       const oldSlide = modalContent.querySelector('.modal-slide');
       if (!oldSlide) return;
-
       const prevIndex = (currentImageIndex - 1 + len) % len;
       const nextIndex = (currentImageIndex + 1) % len;
-
       let newIndex;
       let entryPosition;
       let exitDirection;
-
       if (direction === 'next') {
         newIndex = nextIndex;
         entryPosition = 'right';
@@ -1095,27 +1135,22 @@
         entryPosition = 'left';
         exitDirection = 'right';
       }
-
       currentImageIndex = newIndex;
       const newImage = currentModalImages[newIndex];
       const newSlide = createSlide(newImage.url, entryPosition);
       modalContent.appendChild(newSlide);
-      
       newSlide.offsetHeight;
-
       oldSlide.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
       newSlide.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
-
       oldSlide.style.transform = `translateX(${exitDirection === 'left' ? '-100%' : '100%'})`;
       newSlide.style.transform = 'translateX(0)';
-
       oldSlide.addEventListener('transitionend', () => {
         if (oldSlide.parentNode) oldSlide.parentNode.removeChild(oldSlide);
-      }, { once: true });
-
+      }, {
+        once: true
+      });
       preloadNeighbors(newIndex);
     }
-
     // Event Listeners
     document.addEventListener("DOMContentLoaded", () => {
       handleHashChange();
@@ -1156,7 +1191,6 @@
           closeModal();
         }
       });
-
       // Touch Swipe Logic
       let touchStartX = 0;
       let touchStartY = 0;
@@ -1164,7 +1198,6 @@
       let currentSlide = null;
       let siblingSlide = null;
       let dragDirection = null;
-
       modal.addEventListener('touchstart', e => {
         if (currentModalImages.length <= 1) return;
         touchStartX = e.changedTouches[0].screenX;
@@ -1173,29 +1206,27 @@
         currentSlide = modalContent.querySelector('.modal-slide');
         dragDirection = null;
         siblingSlide = null;
-        if(currentSlide) currentSlide.style.transition = 'none';
-      }, { passive: true });
-
+        if (currentSlide) currentSlide.style.transition = 'none';
+      }, {
+        passive: true
+      });
       modal.addEventListener('touchmove', e => {
         if (!isDragging || !currentSlide) return;
         const touchX = e.changedTouches[0].screenX;
         const touchY = e.changedTouches[0].screenY;
         const diffX = touchX - touchStartX;
         const diffY = touchY - touchStartY;
-
         if (!dragDirection) {
           if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
-             dragDirection = diffX > 0 ? 'prev' : 'next'; 
-           } else if (Math.abs(diffY) > Math.abs(diffX)) {
-             isDragging = false; 
-             return;
-           }
+            dragDirection = diffX > 0 ? 'prev' : 'next';
+          } else if (Math.abs(diffY) > Math.abs(diffX)) {
+            isDragging = false;
+            return;
+          }
         }
-
         currentSlide.style.transform = `translateX(${diffX}px)`;
         const len = currentModalImages.length;
         let siblingIndex;
-        
         if (diffX < 0 && dragDirection === 'next') {
           if (!siblingSlide) {
             siblingIndex = (currentImageIndex + 1) % len;
@@ -1204,7 +1235,6 @@
           }
           siblingSlide.style.transition = 'none';
           siblingSlide.style.transform = `translateX(calc(100% + ${diffX}px))`;
-          
         } else if (diffX > 0 && dragDirection === 'prev') {
           if (!siblingSlide) {
             siblingIndex = (currentImageIndex - 1 + len) % len;
@@ -1214,19 +1244,17 @@
           siblingSlide.style.transition = 'none';
           siblingSlide.style.transform = `translateX(calc(-100% + ${diffX}px))`;
         }
-
-      }, { passive: true });
-
+      }, {
+        passive: true
+      });
       modal.addEventListener('touchend', e => {
         if (!isDragging || !currentSlide) return;
         isDragging = false;
         const touchX = e.changedTouches[0].screenX;
         const diffX = touchX - touchStartX;
-        const threshold = 80; 
-
+        const threshold = 80;
         currentSlide.style.transition = 'transform 0.3s ease';
         if (siblingSlide) siblingSlide.style.transition = 'transform 0.3s ease';
-
         if (Math.abs(diffX) > threshold && dragDirection) {
           if (diffX < 0) {
             currentSlide.style.transform = 'translateX(-100%)';
@@ -1237,25 +1265,27 @@
             if (siblingSlide) siblingSlide.style.transform = 'translateX(0)';
             currentImageIndex = (currentImageIndex - 1 + currentModalImages.length) % currentModalImages.length;
           }
-          
           currentSlide.addEventListener('transitionend', () => {
             if (currentSlide.parentNode) currentSlide.parentNode.removeChild(currentSlide);
-          }, { once: true });
-
+          }, {
+            once: true
+          });
         } else {
           currentSlide.style.transform = 'translateX(0)';
           if (siblingSlide) {
-             if (dragDirection === 'next') siblingSlide.style.transform = 'translateX(100%)';
-             else siblingSlide.style.transform = 'translateX(-100%)';
-             
-             siblingSlide.addEventListener('transitionend', () => {
-               if (siblingSlide && siblingSlide.parentNode) siblingSlide.parentNode.removeChild(siblingSlide);
-             }, { once: true });
+            if (dragDirection === 'next') siblingSlide.style.transform = 'translateX(100%)';
+            else siblingSlide.style.transform = 'translateX(-100%)';
+            siblingSlide.addEventListener('transitionend', () => {
+              if (siblingSlide && siblingSlide.parentNode) siblingSlide.parentNode.removeChild(siblingSlide);
+            }, {
+              once: true
+            });
           }
         }
         preloadNeighbors(currentImageIndex);
-      }, { passive: true });
-
+      }, {
+        passive: true
+      });
       document.addEventListener("keydown", (e) => {
         if (document.getElementById('imageModal').style.display === 'block') {
           if (e.key === "Escape") closeModal();
@@ -1264,7 +1294,6 @@
         }
       });
     });
-
     // URL Hash Logic
     function handleHashChange() {
       let hash = window.location.hash.substring(1);
